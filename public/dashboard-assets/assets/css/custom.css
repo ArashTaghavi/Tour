@@ -1,0 +1,23 @@
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3VzdG9tLmNzcyIsInNvdXJjZXMiOlsiY3VzdG9tLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9 */
+
+/*# sourceMappingURL=custom.css.map */
+.required:after {
+    content: " *";
+    color: red !important;
+}
+
+.text-muted2 {
+    font-size: 12px;
+    color: #818d99;
+    line-height: 12px;
+    margin-left: 4px;
+}
+
+.no-input {
+    border: none !important;
+    background: transparent;
+}
+
+.table-text-center td, .table-text-center th {
+    text-align: center;
+}
