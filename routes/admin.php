@@ -40,6 +40,17 @@ Route::middleware(['web','auth:web','IsAdmin'])->group(function () {
 
         });
         // ============================== Itinerary Tours ==============================
+
+        // ============================== Tour Leaders ==============================
+        Route::name('tour-leaders.')->prefix('tour-leaders')->group(function () {
+            Route::get('/', 'TourLeaderController@index')->name('index');
+            Route::post('/', 'TourLeaderController@store')->name('store');
+            Route::put('/{id}', 'TourLeaderController@update')->name('update');
+            Route::put('/field-update/{id}/{field}', 'TourLeaderController@fieldUpdate')->name('field-update');
+            Route::delete('/{id}', 'TourLeaderController@destroy')->name('destroy');
+
+        });
+        // ============================== Tour Leaders ==============================
     });
 
 });

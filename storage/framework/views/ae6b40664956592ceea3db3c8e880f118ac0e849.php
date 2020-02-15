@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-    <div id="slider_wrapper">
+    <div id="slider_wrapper" style="top:-113px">
         <div class="container">
             <div id="slider_inner">
                 <div class="">
@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <div id="front_tabs">
+    <div id="front_tabs" style="top:-113px">
         <div class="container">
             <div class="tabs_wrapper tabs1_wrapper">
                 <div class="tabs tabs1">
@@ -72,7 +72,7 @@
 
                         <ul>
                             <li class="active flights"><a href="#tabs-1">Flights</a></li>
-                            <li class="tour"><a href="#tabs-5">Tours</a></li>
+                            <li class="flights"><a href="#tabs-5">Tours</a></li>
                             <li class="hotels"><a href="#tabs-2">Hotels</a></li>
                             <li class="cars"><a href="#tabs-3">Cars</a></li>
                             <li class="cruises"><a href="#tabs-4">Cruises</a></li>
@@ -363,6 +363,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-sm-4 col-md-2">
                                         <div class="input1_wrapper">
                                             <label>End of Date:</label>
@@ -413,19 +414,22 @@
 
                                     <div class="col-sm-4 col-md-2">
                                         <div class="input1_wrapper">
-                                            <label>Start Date:</label>
-                                            <div class="input1_inner">
-                                                <input type="text" name="sd" class="input datepicker"
-                                                       value="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-md-2">
-                                        <div class="input1_wrapper">
                                             <label>End of Date:</label>
                                             <div class="input1_inner">
-                                                <input type="text" name="ed" class="input datepicker"
-                                                       value="">
+                                                <select name="month" id="" class="select2 select">
+                                                    <option value="01">January</option>
+                                                    <option value="02">February</option>
+                                                    <option value="03">March</option>
+                                                    <option value="04">April</option>
+                                                    <option value="05">May</option>
+                                                    <option value="06">June</option>
+                                                    <option value="07">July</option>
+                                                    <option value="08">August</option>
+                                                    <option value="09">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -1019,8 +1023,8 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="logo2_wrapper">
-                        <a href="index-2.html" class="logo2">
-                            <img src="/site-assets/images/logo2.png" alt="" class="img-responsive">
+                        <a href="/" class="logo2">
+                            <img src="/site-assets/images/logo2.svg" alt="" class="img-responsive">
                         </a>
                     </div>
                     <p>

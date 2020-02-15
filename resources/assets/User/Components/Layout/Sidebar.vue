@@ -2,7 +2,7 @@
     <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
             <div class="sidebar-brand">
-                <a href="index-2.html"> <img alt="تصویر" src="/dashboard-assets/assets/img/logo.png"
+                <a href="index-2.html"> <img alt="تصویر" src="/dashboard-assets/assets/img/logo.svg"
                                              class="header-logo"> <span class="logo-name">اجیس</span>
                 </a>
             </div>

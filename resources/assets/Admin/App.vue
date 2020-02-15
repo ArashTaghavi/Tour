@@ -14,7 +14,7 @@
                     <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
                     </a>
                     <div class="settingSidebar-body ps-container ps-theme-default">
-                        <div class=" fade show active">
+                        <div class=" fade show">
                             <div class="setting-panel-header">تنظیم پنل</div>
                             <div class="p-15 border-bottom">
                                 <h6 class="font-medium m-b-10">رنگ قالب</h6>
@@ -52,7 +52,7 @@
                                 <h6 class="font-medium m-b-10">تم رنگی</h6>
                                 <div class="theme-setting-options">
                                     <ul class="choose-theme list-unstyled mb-0">
-                                        <li title="white" class="active">
+                                        <li title="white" class="">
                                             <div class="white"></div>
                                         </li>
                                         <li title="cyan">
@@ -125,7 +125,7 @@
                 <div class="footer-left">
                     حق چاپ © 2019
                     <div class="bullet"></div>
-                    طراحی توسط <a href="#">amir.h</a>
+                    طراحی توسط <a href="https://digialpha.agency">دیجی آلفا</a>
                 </div>
                 <div class="footer-right">
                 </div>

@@ -68,7 +68,12 @@ export default {
         },
         emptyForm(){
             this.form={}
-        }
+        },
+        handleClass(event) {
+            event.target.classList.remove('no-input');
+            event.target.classList.add('form-control');
+            event.target.classList.add('form-control-sm');
+        },
     },
 
 }

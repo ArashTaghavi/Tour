@@ -2403,7 +2403,170 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    handleSubmit: function handleSubmit() {
+      var _this = this;
+
+      axios.post("/tour-leaders", this.form).then(function (response) {
+        _this.successNotify(response);
+
+        _this.$router.push('/tour-leaders');
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      tour_leaders: []
+    };
+  },
+  created: function created() {
+    this.getTourLeaders();
+  },
+  methods: {
+    getTourLeaders: function getTourLeaders() {
+      var _this = this;
+
+      axios.get('/tour-leaders').then(function (response) {
+        return _this.tour_leaders = response.data;
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    handleDelete: function handleDelete(id) {
+      var _this2 = this;
+
+      axios["delete"]("/tour-leaders/".concat(id)).then(function (response) {
+        _this2.successNotify(response);
+
+        _this2.getTourLeaders();
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    },
+    handleFieldUpdate: function handleFieldUpdate(id, field, event) {
+      var _this3 = this;
+
+      event.target.classList.remove('form-control');
+      event.target.classList.remove('form-control-sm');
+      event.target.classList.add('no-input');
+      axios.put("/tour-leaders/field-update/".concat(id, "/").concat(field), {
+        data: event.target.value
+      }).then(function (response) {
+        return response;
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -30043,7 +30206,7 @@ var staticRenderFns = [
         "div",
         { staticClass: "settingSidebar-body ps-container ps-theme-default" },
         [
-          _c("div", { staticClass: " fade show active" }, [
+          _c("div", { staticClass: " fade show" }, [
             _c("div", { staticClass: "setting-panel-header" }, [
               _vm._v("تنظیم پنل")
             ]),
@@ -30147,11 +30310,9 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("div", { staticClass: "theme-setting-options" }, [
                 _c("ul", { staticClass: "choose-theme list-unstyled mb-0" }, [
-                  _c(
-                    "li",
-                    { staticClass: "active", attrs: { title: "white" } },
-                    [_c("div", { staticClass: "white" })]
-                  ),
+                  _c("li", { attrs: { title: "white" } }, [
+                    _c("div", { staticClass: "white" })
+                  ]),
                   _vm._v(" "),
                   _c("li", { attrs: { title: "cyan" } }, [
                     _c("div", { staticClass: "cyan" })
@@ -30297,7 +30458,9 @@ var staticRenderFns = [
         _vm._v("\n                حق چاپ © 2019\n                "),
         _c("div", { staticClass: "bullet" }),
         _vm._v("\n                طراحی توسط "),
-        _c("a", { attrs: { href: "#" } }, [_vm._v("amir.h")])
+        _c("a", { attrs: { href: "https://digialpha.agency" } }, [
+          _vm._v("دیجی آلفا")
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "footer-right" })
@@ -30512,7 +30675,7 @@ var staticRenderFns = [
                       _vm._v(" "),
                       _c("span", { staticClass: "dropdown-item-desc" }, [
                         _c("span", { staticClass: "message-user" }, [
-                          _vm._v("سارا")
+                          _vm._v("مدیر")
                         ]),
                         _vm._v(" "),
                         _c("span", { staticClass: "time messege-text" }, [
@@ -30854,7 +31017,7 @@ var staticRenderFns = [
             { staticClass: "dropdown-menu dropdown-menu-right pullDown" },
             [
               _c("div", { staticClass: "dropdown-title" }, [
-                _vm._v("سلام سارا اسمیت")
+                _vm._v("سلام مدیر")
               ]),
               _vm._v(" "),
               _c(
@@ -30955,6 +31118,19 @@ var render = function() {
               1
             ),
             _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "active" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "nav-link", attrs: { to: "/tour-leaders" } },
+                  [_vm._v("تور لیدر ها")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
             _vm._m(3)
           ])
         ])
@@ -30971,10 +31147,10 @@ var staticRenderFns = [
       _c("a", { attrs: { href: "index-2.html" } }, [
         _c("img", {
           staticClass: "header-logo",
-          attrs: { alt: "تصویر", src: "/dashboard-assets/assets/img/logo.png" }
+          attrs: { alt: "تصویر", src: "/dashboard-assets/assets/img/logo.svg" }
         }),
         _vm._v(" "),
-        _c("span", { staticClass: "logo-name" }, [_vm._v("اجیس")])
+        _c("span", { staticClass: "logo-name" }, [_vm._v("پنل مدیریت")])
       ])
     ])
   },
@@ -30993,9 +31169,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "sidebar-user-details" }, [
-        _c("div", { staticClass: "user-name" }, [_vm._v("سارا اسمیت")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "user-role" }, [_vm._v("مدیر")])
+        _c("div", { staticClass: "user-name" }, [_vm._v("مدیر")])
       ])
     ])
   },
@@ -31024,6 +31198,300 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=template&id=3a1694c4&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=template&id=3a1694c4& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: _vm.$route.name, active_loading: false } },
+    [
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "title" } },
+                [_vm._v("نام و نام خانوادگی")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.name,
+                    expression: "form.name"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "title",
+                  placeholder: "نام کامل تور لیدر را وارد نمایید"
+                },
+                domProps: { value: _vm.form.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "name", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6" }, [
+            _c(
+              "label",
+              { staticClass: "required", attrs: { for: "description" } },
+              [_vm._v("توضیحات تور لیدر")]
+            ),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.description,
+                  expression: "form.description"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: { cols: "30", rows: "13", id: "description" },
+              domProps: { value: _vm.form.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "description", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12 text-right" }, [
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("cropper-portlet", {
+                  attrs: { title: "تصویر پروفایل", place: "right" },
+                  model: {
+                    value: _vm.form.profile_image,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "profile_image", $$v)
+                    },
+                    expression: "form.profile_image"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("submit", { on: { click: _vm.handleSubmit } })
+        ],
+        1
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=template&id=3796b920&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=template&id=3796b920& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: _vm.$route.name } },
+    [
+      _c("add-btn", { attrs: { to: "/tour-leaders" } }),
+      _vm._v(" "),
+      _vm.tour_leaders.length
+        ? _c("div", { staticClass: "table-responsive" }, [
+            _c(
+              "div",
+              {
+                staticClass: "container-fluid dt-bootstrap4 no-footer",
+                attrs: { id: "table-1_wrapper" }
+              },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-12" }, [
+                    _c("table", { staticClass: "table table-sm" }, [
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", [_vm._v("نام")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("توضیحات")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("تصویر")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("عملیات")])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.tour_leaders, function(tour_leader, index) {
+                          return _c("tr", { key: index }, [
+                            _c("td", [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: tour_leader.name,
+                                    expression: "tour_leader.name"
+                                  }
+                                ],
+                                staticClass: "no-input",
+                                attrs: { type: "text" },
+                                domProps: { value: tour_leader.name },
+                                on: {
+                                  focus: function($event) {
+                                    return _vm.handleClass($event)
+                                  },
+                                  focusout: function($event) {
+                                    return _vm.handleFieldUpdate(
+                                      tour_leader.id,
+                                      "name",
+                                      $event
+                                    )
+                                  },
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      tour_leader,
+                                      "name",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("textarea", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: tour_leader.description,
+                                    expression: "tour_leader.description"
+                                  }
+                                ],
+                                staticClass: "no-input",
+                                staticStyle: { width: "100%", resize: "none" },
+                                attrs: {
+                                  type: "text",
+                                  rows: "5",
+                                  placeholder: "توضیحات تور لیدرز"
+                                },
+                                domProps: { value: tour_leader.description },
+                                on: {
+                                  focus: function($event) {
+                                    return _vm.handleClass($event)
+                                  },
+                                  focusout: function($event) {
+                                    return _vm.handleFieldUpdate(
+                                      tour_leader.id,
+                                      "description",
+                                      $event
+                                    )
+                                  },
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      tour_leader,
+                                      "description",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("img", {
+                                staticStyle: { "max-width": "30%" },
+                                attrs: {
+                                  src: tour_leader.profile_image,
+                                  alt: tour_leader.name
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              [
+                                _c("delete-btn", {
+                                  attrs: { id: tour_leader.id }
+                                })
+                              ],
+                              1
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        : _c("not-found")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50894,6 +51362,144 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/Admin/Components/TourLeaders/Create.vue":
+/*!******************************************************************!*\
+  !*** ./resources/assets/Admin/Components/TourLeaders/Create.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Create_vue_vue_type_template_id_3a1694c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Create.vue?vue&type=template&id=3a1694c4& */ "./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=template&id=3a1694c4&");
+/* harmony import */ var _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Create.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Create_vue_vue_type_template_id_3a1694c4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Create_vue_vue_type_template_id_3a1694c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/TourLeaders/Create.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=template&id=3a1694c4&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=template&id=3a1694c4& ***!
+  \*************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3a1694c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=template&id=3a1694c4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/TourLeaders/Create.vue?vue&type=template&id=3a1694c4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3a1694c4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3a1694c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/TourLeaders/Index.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/assets/Admin/Components/TourLeaders/Index.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Index_vue_vue_type_template_id_3796b920___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=3796b920& */ "./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=template&id=3796b920&");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Index_vue_vue_type_template_id_3796b920___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Index_vue_vue_type_template_id_3796b920___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/TourLeaders/Index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=template&id=3796b920&":
+/*!************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=template&id=3796b920& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_3796b920___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=template&id=3796b920& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/TourLeaders/Index.vue?vue&type=template&id=3796b920&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_3796b920___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_3796b920___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/Admin/Components/Tours/Ours/Create.vue":
 /*!*****************************************************************!*\
   !*** ./resources/assets/Admin/Components/Tours/Ours/Create.vue ***!
@@ -51392,6 +51998,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Tours_Ours_Edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Tours/Ours/Edit */ "./resources/assets/Admin/Components/Tours/Ours/Edit.vue");
 /* harmony import */ var _Components_Tours_Ours_Gallery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/Tours/Ours/Gallery */ "./resources/assets/Admin/Components/Tours/Ours/Gallery.vue");
 /* harmony import */ var _Components_Tours_Ours_Itinerary__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/Tours/Ours/Itinerary */ "./resources/assets/Admin/Components/Tours/Ours/Itinerary.vue");
+/* harmony import */ var _Components_TourLeaders_Index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/TourLeaders/Index */ "./resources/assets/Admin/Components/TourLeaders/Index.vue");
+/* harmony import */ var _Components_TourLeaders_Create__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/TourLeaders/Create */ "./resources/assets/Admin/Components/TourLeaders/Create.vue");
  //====================== Tours ======================
 
 
@@ -51399,6 +52007,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
  //====================== Tours ======================
+//====================== Tour Leaders ======================
+
+
+ //====================== Tour Leaders ======================
 
 /* harmony default export */ __webpack_exports__["default"] = ([{
   path: '/',
@@ -51424,6 +52036,14 @@ __webpack_require__.r(__webpack_exports__);
   path: '/tours/:id/itinerary',
   name: 'برنامه سفر تور',
   component: _Components_Tours_Ours_Itinerary__WEBPACK_IMPORTED_MODULE_5__["default"]
+}, {
+  path: '/tour-leaders',
+  name: 'تور لیدر ها',
+  component: _Components_TourLeaders_Index__WEBPACK_IMPORTED_MODULE_6__["default"]
+}, {
+  path: '/tour-leaders/create',
+  name: 'افزودن تور لیدر جدید',
+  component: _Components_TourLeaders_Create__WEBPACK_IMPORTED_MODULE_7__["default"]
 }]);
 
 /***/ }),
@@ -51545,6 +52165,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     emptyForm: function emptyForm() {
       this.form = {};
+    },
+    handleClass: function handleClass(event) {
+      event.target.classList.remove('no-input');
+      event.target.classList.add('form-control');
+      event.target.classList.add('form-control-sm');
     }
   }
 });

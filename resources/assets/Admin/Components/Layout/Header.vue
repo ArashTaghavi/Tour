@@ -40,7 +40,7 @@
                   </span>
                         </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
                     <img alt="image" src="/dashboard-assets/assets/img/users/user-2.png" class="rounded-circle">
-                  </span> <span class="dropdown-item-desc"> <span class="message-user">سارا</span> <span
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">مدیر</span> <span
                             class="time messege-text">درخواست برای نرم افزار</span>
                     <span class="time">5 دقیقه قبل</span>
                   </span>
@@ -108,7 +108,7 @@
             </li>
             <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="تصویر" src="/dashboard-assets/assets/img/user.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
                 <div class="dropdown-menu dropdown-menu-right pullDown">
-                    <div class="dropdown-title">سلام سارا اسمیت</div>
+                    <div class="dropdown-title">سلام مدیر</div>
                     <a href="profile.html" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> مشخصات
                     </a> <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>

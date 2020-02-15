@@ -57,7 +57,6 @@ class ImageTourController extends BaseController
     public function update(Request $request, $id)
     {
         $this->handleValidate($request);
-        $this->handleValidate($request);
         $image_tour = ImageTour::where('id', $id)->first();
         $image_tour->fill($request->except('profile_image'));
         $image_tour->fillImage($request);

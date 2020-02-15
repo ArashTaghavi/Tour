@@ -25738,7 +25738,7 @@ var staticRenderFns = [
       _c("a", { attrs: { href: "index-2.html" } }, [
         _c("img", {
           staticClass: "header-logo",
-          attrs: { alt: "تصویر", src: "/dashboard-assets/assets/img/logo.png" }
+          attrs: { alt: "تصویر", src: "/dashboard-assets/assets/img/logo.svg" }
         }),
         _vm._v(" "),
         _c("span", { staticClass: "logo-name" }, [_vm._v("اجیس")])
@@ -41532,6 +41532,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     emptyForm: function emptyForm() {
       this.form = {};
+    },
+    handleClass: function handleClass(event) {
+      event.target.classList.remove('no-input');
+      event.target.classList.add('form-control');
+      event.target.classList.add('form-control-sm');
     }
   }
 });
