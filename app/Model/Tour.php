@@ -2,8 +2,11 @@
 
 namespace App\Model;
 
+use App\EloquentHelpers\HasImage;
 use App\Models\ImageTour;
 use App\Models\ItineraryTour;
+use App\Models\PeriodTour;
+use App\Models\TourLeader;
 use App\Models\TourUser;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
@@ -15,6 +18,8 @@ class Tour extends Model
     protected $guarded = ['id'];
 
     use HasSlug;
+    use HasImage;
+    public $image_path = 'tours';
 
     /**
      * Get the options for generating the slug.
@@ -37,7 +42,6 @@ class Tour extends Model
     }
 
     public $casts = [
-        'tags' => 'array',
         'trips' => 'array',
         'travel_style' => 'array',
         'transportation' => 'array'
@@ -48,23 +52,6 @@ class Tour extends Model
         return $this->hasMany(ImageTour::class);
     }
 
-    public function length()
-    {
-        $date1 = date_create($this->start_date);
-        $date2 = date_create($this->end_date);
-        $diff = date_diff($date1, $date2);
-        return $diff->days;
-    }
-
-    public function pricePerDay()
-    {
-        return   $this->length() > 0 ? round($this->price / $this->length(), 2) : 0;
-    }
-
-    public function byDiscount()
-    {
-        return round(($this->price - ($this->price * $this->discount / 100)), 2);
-    }
 
     public function itineraryTour()
     {
@@ -73,7 +60,16 @@ class Tour extends Model
 
     public function users()
     {
-
         return $this->belongsToMany(User::class)->using(TourUser::class);
+    }
+
+    public function periods()
+    {
+        return $this->hasMany(PeriodTour::class);
+    }
+
+    public function tourLeader()
+    {
+        return $this->belongsTo(TourLeader::class);
     }
 }

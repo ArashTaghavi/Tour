@@ -17,16 +17,21 @@ class TourController extends Controller
 
     public function search(Request $request)
     {
-
         $year = Carbon::now()->format('Y');
         $month = $request->month;
-        $day = 1;
-        $date = "$year-$month-$day";
-        $tours = Tour::where(function ($q) use ($request) {
-            $q->where('title', 'like', "%{$request->get('w')}%")
-                ->orWhere('trips', 'like', "%{$request->get('w')}%")
-                ->orWhere('to', 'like', "%{$request->get('w')}%");
-        })->where('end_date', '>=', $date)->get();
+        $first_end_date = "$year-$month-01";
+        $last_end_date = "$year-$month-30";
+        $tours = Tour::with(['periods' => function ($query) use ($first_end_date, $last_end_date) {
+            $query->where('end_date', '>=', $first_end_date)
+                ->where('end_date', '<=', $last_end_date)
+                ->where('start_date', '>=', Carbon::now()->format('Y-m-d'));
+        }])
+            ->with('tourLeader')
+            ->where(function ($q) use ($request) {
+                $q->where('title', 'like', "%{$request->get('w')}%")
+                    ->orWhere('trips', 'like', "%{$request->get('w')}%")
+                    ->orWhere('to', 'like', "%{$request->get('w')}%");
+            })->get();
         return view('site.tours.search', compact('tours'));
     }
 

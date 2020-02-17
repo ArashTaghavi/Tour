@@ -10,12 +10,12 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <label for="description" class="required">توضیحات تور لیدر</label>
+                <label for="description" class="required">درباره تور لیدر</label>
                 <textarea class="form-control form-control-sm" cols="30" rows="13" id="description" v-model="form.description"></textarea>
             </div>
             <div class="col-md-12 text-right">
                 <div class="form-group">
-                    <cropper-portlet v-model="form.profile_image" title="تصویر پروفایل" place="right"/>
+                    <cropper-portlet v-model="form.profile_image" title="تصویر پروفایل" place="left"/>
                 </div>
             </div>
             <submit @click="handleSubmit"/>

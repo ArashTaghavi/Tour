@@ -2,34 +2,50 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Model\Tour;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TourController extends BaseController
 {
     public function our_tours()
     {
-        return Tour::where('operator', 0)->orderBy('created_at', 'DESC')->get();
+        return Tour::with('tourLeader:tour_leaders.id,tour_leaders.name')->orderBy('created_at', 'DESC')->get();
     }
 
     public function get($id)
     {
-        return Tour::where('id',$id)->where('operator',0)->first();
+        return Tour::with('periods')->with('tourLeader:tour_leaders.id,tour_leaders.name')->where('id', $id)->first();
     }
 
     public function store(Request $request)
     {
-
         $this->handleValidate($request);
-        $request->start_date = (new \DateTime($request->start_date))->format('Y/m/d');
-        $request->end_date = (new \DateTime($request->end_date))->format('Y/m/d');
         $tour = new Tour();
-        $tour->fill($request->except(['start_date', 'end_date']));
-        $tour->start_date = $request->start_date;
-        $tour->end_date = $request->end_date;
+
+        $tour->fill($request->except(['periods', 'profile_image']));
+        $tour->fillImage($request);
+
         $tour->save();
+
+        $period_tours = [];
+
+        // ========================= Method 1 =========================
+        /* foreach ($request->periods as $period) {
+             $period['start_date'] = (new \DateTime($period['start_date']))->format('Y/m/d');
+             $period['end_date'] = (new \DateTime($period['end_date']))->format('Y/m/d');
+             $period_tour = new PeriodTour();
+             $period_tour->fill($period);
+             $period_tours[] = $period_tour;
+         }
+         $tour->periods()->saveMany($period_tours);*/
+
+        // ========================= Method 1 =========================
+        foreach ($request->periods as $period) {
+            $period['start_date'] = (new \DateTime($period['start_date']))->format('Y/m/d');
+            $period['end_date'] = (new \DateTime($period['end_date']))->format('Y/m/d');
+            $period_tours[] = $period;
+        }
+        $tour->periods()->createMany($period_tours);
 
         return $this->successNotify();
     }
@@ -38,14 +54,24 @@ class TourController extends BaseController
     public function update(Request $request, $id)
     {
         $this->handleValidate($request);
-        $tour = Tour::where('id', $id)->where('operator', 0)->first();
-        $request->start_date = (new \DateTime($request->start_date))->format('Y/m/d');
-        $request->end_date = (new \DateTime($request->end_date))->format('Y/m/d');
-        $tour->fill($request->except(['start_date', 'end_date']));
-        $tour->start_date = $request->start_date;
-        $tour->end_date = $request->end_date;
+        $tour = Tour::where('id', $id)->first();
+        $tour->fill($request->except(['periods', 'tour_leader']));
+        if ($tour->isDirty('profile_image')) {
+            $tour->unlinkOriginalImage();
+            $tour->fillImage($request);
+        }
         $tour->save();
+        $period_tours = [];
 
+
+        foreach ($request->periods as $period) {
+            $period['start_date'] = (new \DateTime($period['start_date']))->format('Y/m/d');
+            $period['end_date'] = (new \DateTime($period['end_date']))->format('Y/m/d');
+            $period_tours[] = $period;
+        }
+
+        $tour->periods()->delete();
+        $tour->periods()->createMany($period_tours);
 
         return $this->successNotify();
 
@@ -73,9 +99,11 @@ class TourController extends BaseController
             'transportation' => 'required',
             'travel_style' => 'required',
             'trips' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            /* 'start_date' => 'required',
+             'end_date' => 'required',*/
             'price' => 'required',
+            // 'periods.*' => 'required',
+            'profile_image'=>'required'
         ]);
 
         if ($validator->fails()) {

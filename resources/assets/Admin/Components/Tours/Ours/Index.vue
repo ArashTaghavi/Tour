@@ -11,8 +11,7 @@
                                 <th>عنوان</th>
                                 <th>مبدا</th>
                                 <th>مقصد</th>
-                                <th>تاریخ شروع</th>
-                                <th>تاریخ پایان</th>
+                                <th>تور لیدر</th>
                                 <th>عملیات</th>
                             </tr>
                             </thead>
@@ -21,8 +20,7 @@
                                 <td>{{tour.title}}</td>
                                 <td>{{tour.from}}</td>
                                 <td>{{tour.to}}</td>
-                                <td>{{tour.start_date}}</td>
-                                <td>{{tour.end_date}}</td>
+                                <td>{{tour.tour_leader.name}}</td>
                                 <td>
                                     <delete-btn :id="tour.id"/>
                                     <edit-btn :to="`${tour.id}`"/>

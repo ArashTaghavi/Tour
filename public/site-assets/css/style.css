@@ -538,7 +538,7 @@ transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-trans
 .distance1{position: relative; padding-bottom: 20px;}
 .distance1 .txt{font-weight: 600; padding-bottom: 5px;}
 .distance1 .bg{position: relative; height: 13px; background: #f8f8f8;}
-.distance1 .bg .animated-distance{background: #1cbbb4;position: absolute; left: 0: top: 0; width: 0; height: 100%;}
+.distance1 .bg .animated-distance{background: #1cbbb4;position: absolute; left: 0; top: 0; width: 0; height: 100%;}
 .distance1 .bg .animated-distance span{position: absolute; top: -25px; right: -10px; font-weight: 700;}
 
 #partners{position: relative; padding-top: 50px; padding-bottom: 50px;}
@@ -634,7 +634,7 @@ transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-trans
 .navbar_ .nav{position: relative; margin: 0; padding: 0; display: block; float: none; padding-right: 0px; background: none;}
 .navbar_ .nav > li{position: relative; display: block; float: left; white-space: nowrap; padding-left: 0px; background: none; margin-left: 50px;}
 .navbar_ .nav > li:first-child{margin-left: 0;}
-.navbar_ .nav > li > a{display: block; text-decoration: none; background: none; font-family: 'Raleway'; font-weight: 500; font-size: 14px; line-height: 20px; color: #fff; text-shadow:none; padding: 45px 0px 45px 0; border: none; margin: 0; border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px; text-align: left; text-transform: none; vertical-align: middle; border-bottom: 3px solid transparent;
+.navbar_ .nav > li > a{display: block; text-decoration: none; background: none; font-family: 'FreeSans'; font-weight: 500; font-size: 14px; line-height: 20px; color: #000; text-shadow:none; padding: 45px 0px 45px 0; border: none; margin: 0; border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px; text-align: left; text-transform: none; vertical-align: middle; border-bottom: 3px solid transparent;
 transition: color 0.3s ease-out; -moz-transition: color 0.3s ease-out; -webkit-transition: color 0.3s ease-out; -o-transition: color 0.3s ease-out;
 }
 .navbar_ .nav > li > a em{display: inline-block; width: 8px; height: 5px; background: url(../images/caret.png); margin-left: 5px;}

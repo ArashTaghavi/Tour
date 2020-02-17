@@ -15,9 +15,7 @@ class ItineraryTourController extends BaseController
 {
     public function index($id)
     {
-        return ItineraryTour::whereHas('tour', function ($q) {
-            $q->where('operator', 0);
-        })->where('tour_id', $id)->get();
+        return ItineraryTour::where('tour_id', $id)->get();
     }
 
 
@@ -48,9 +46,7 @@ class ItineraryTourController extends BaseController
     public function update(Request $request, $id)
     {
         $this->handleValidate($request);
-        $tour = ItineraryTour::whereHas('tours', function ($q) {
-            $q->where('operator', 0);
-        })->where('id', $id)->first();
+        $tour = ItineraryTour::where('id', $id)->first();
         $tour->fill($request->all());
         $tour->save();
 

@@ -27,12 +27,11 @@ class CreateToursTable extends Migration
             $table->text('transportation');
             $table->text('travel_style');
             $table->text('trips');
-            $table->date('start_date');
-            $table->date('end_date');
             $table->string('price');
-            $table->float('discount')->default(0);
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('operator')->default(0);
+            $table->string('profile_image');
+            $table->unsignedBigInteger('tour_leader_id');
+            $table->foreign('tour_leader_id')->references('id')->on('tour_leaders')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -2741,24 +2741,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       transportation: '',
       travel_style: '',
-      trips: ''
+      trips: '',
+      periods: [{
+        start_date: null,
+        end_date: null,
+        discount: 0
+      }],
+      tour_leaders: []
     };
   },
   created: function created() {
+    this.getTourLeaders();
     this.form.transportation = [];
     this.form.travel_style = [];
     this.form.trips = [];
+    this.form.periods = [];
   },
   methods: {
     handleSubmit: function handleSubmit() {
       var _this = this;
 
+      this.form.periods = this.periods;
       axios.post("/tours", this.form).then(function (response) {
         _this.successNotify(response);
 
@@ -2790,6 +2819,25 @@ __webpack_require__.r(__webpack_exports__);
     removeTrips: function removeTrips(index) {
       this.form.trips.splice(index, 1);
       this.$forceUpdate();
+    },
+    addPeriod: function addPeriod() {
+      var item = {
+        start_date: null,
+        end_date: null,
+        discount: 0
+      };
+      this.periods.push(item);
+      item = {};
+    },
+    removePeriod: function removePeriod() {},
+    getTourLeaders: function getTourLeaders() {
+      var _this2 = this;
+
+      axios.get('/tour-leaders').then(function (response) {
+        return _this2.tour_leaders = response.data;
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
     }
   },
   components: {
@@ -2969,13 +3017,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       transportation: '',
       travel_style: '',
-      trips: ''
+      trips: '',
+      periods: [{
+        start_date: null,
+        end_date: null,
+        discount: 0
+      }],
+      tour_leaders: []
     };
   },
   created: function created() {
@@ -2983,13 +3060,20 @@ __webpack_require__.r(__webpack_exports__);
     this.form.transportation = [];
     this.form.travel_style = [];
     this.form.trips = [];
+    this.getTourLeaders();
+    this.form.periods = [];
   },
   methods: {
     getTour: function getTour() {
       var _this = this;
 
       axios.get("/tours/".concat(this.$route.params.id)).then(function (response) {
-        return _this.form = response.data;
+        _this.form = response.data;
+        _this.periods = response.data.periods != null ? response.data.periods : [{
+          start_date: null,
+          end_date: null,
+          discount: 0
+        }];
       })["catch"](function (error) {
         return _this.errorNotify(error);
       });
@@ -3028,6 +3112,25 @@ __webpack_require__.r(__webpack_exports__);
     removeTrips: function removeTrips(index) {
       this.form.trips.splice(index, 1);
       this.$forceUpdate();
+    },
+    addPeriod: function addPeriod() {
+      var item = {
+        start_date: null,
+        end_date: null,
+        discount: 0
+      };
+      this.periods.push(item);
+      item = {};
+    },
+    removePeriod: function removePeriod() {},
+    getTourLeaders: function getTourLeaders() {
+      var _this3 = this;
+
+      axios.get('/tour-leaders').then(function (response) {
+        return _this3.tour_leaders = response.data;
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
     }
   },
   components: {
@@ -3206,8 +3309,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -31267,7 +31368,7 @@ var render = function() {
             _c(
               "label",
               { staticClass: "required", attrs: { for: "description" } },
-              [_vm._v("توضیحات تور لیدر")]
+              [_vm._v("درباره تور لیدر")]
             ),
             _vm._v(" "),
             _c("textarea", {
@@ -31299,7 +31400,7 @@ var render = function() {
               { staticClass: "form-group" },
               [
                 _c("cropper-portlet", {
-                  attrs: { title: "تصویر پروفایل", place: "right" },
+                  attrs: { title: "تصویر پروفایل", place: "left" },
                   model: {
                     value: _vm.form.profile_image,
                     callback: function($$v) {
@@ -31809,7 +31910,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "col-md-3" }, [
             _c("div", { staticClass: "form-group" }, [
               _c(
                 "label",
@@ -31887,7 +31988,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "col-md-3" }, [
             _c("div", { staticClass: "form-group" }, [
               _c(
                 "label",
@@ -31956,7 +32057,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "col-md-3" }, [
             _c("div", { staticClass: "form-group" }, [
               _c(
                 "label",
@@ -32047,7 +32148,7 @@ var render = function() {
                   min: "0",
                   type: "text",
                   id: "price",
-                  placeholder: "قیمت"
+                  placeholder: "قیمت را وارد نمایید"
                 },
                 domProps: { value: _vm.form.price },
                 on: {
@@ -32062,92 +32163,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "discount" } }, [_vm._v("تخفیف")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.discount,
-                    expression: "form.discount"
-                  }
-                ],
-                staticClass: "form-control form-control-sm",
-                attrs: {
-                  min: "0",
-                  type: "text",
-                  id: "discount",
-                  placeholder: "تخفیف"
-                },
-                domProps: { value: _vm.form.discount },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "discount", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-4" }, [
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c(
-                  "label",
-                  { staticClass: "required", attrs: { for: "start_date" } },
-                  [_vm._v("تاریخ شروع")]
-                ),
-                _vm._v(" "),
-                _c("Datepicker", {
-                  attrs: { inline: true, placeholder: "تاریخ شروع تور" },
-                  model: {
-                    value: _vm.form.start_date,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "start_date", $$v)
-                    },
-                    expression: "form.start_date"
-                  }
-                })
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-4" }, [
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c(
-                  "label",
-                  { staticClass: "required", attrs: { for: "end_date" } },
-                  [_vm._v("تاریخ پایان")]
-                ),
-                _vm._v(" "),
-                _c("Datepicker", {
-                  attrs: { inline: true, placeholder: "تاریخ پایان تور" },
-                  model: {
-                    value: _vm.form.end_date,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "end_date", $$v)
-                    },
-                    expression: "form.end_date"
-                  }
-                })
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-4" }, [
+          _c("div", { staticClass: "col-md-9" }, [
             _c("label", { attrs: { for: "description" } }, [
               _vm._v("توضیحات تور")
             ]),
@@ -32162,7 +32178,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control form-control-sm",
-              attrs: { cols: "30", rows: "13", id: "description" },
+              attrs: { cols: "10", rows: "5", id: "description" },
               domProps: { value: _vm.form.description },
               on: {
                 input: function($event) {
@@ -32175,9 +32191,193 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("cropper-portlet", {
+                  attrs: { title: "تصویر شاخص", place: "left" },
+                  model: {
+                    value: _vm.form.profile_image,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "profile_image", $$v)
+                    },
+                    expression: "form.profile_image"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "tour_leader_id" } },
+                [_vm._v("تور لیدر")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.tour_leader_id,
+                      expression: "form.tour_leader_id"
+                    }
+                  ],
+                  staticClass: "form-control form-control-sm",
+                  attrs: { name: "", id: "tour_leader_id" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.form,
+                        "tour_leader_id",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                _vm._l(_vm.tour_leaders, function(tour_leader, key) {
+                  return _c(
+                    "option",
+                    { key: key, domProps: { value: tour_leader.id } },
+                    [
+                      _vm._v(
+                        _vm._s(tour_leader.name) + "\n                    "
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-12" },
+            [
+              _c(
+                "icon-btn",
+                {
+                  attrs: { type: "success", icon: "check" },
+                  on: { click: _vm.addPeriod }
+                },
+                [_vm._v("افزودن دوره")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.periods, function(period, key) {
+            return _c("div", { key: key, staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-4" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "discount" } }, [
+                    _vm._v("تخفیف")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: period.discount,
+                        expression: "period.discount"
+                      }
+                    ],
+                    staticClass: "form-control form-control-sm",
+                    attrs: {
+                      min: "0",
+                      type: "text",
+                      id: "discount",
+                      placeholder: "تخفیف"
+                    },
+                    domProps: { value: period.discount },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(period, "discount", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c(
+                      "label",
+                      { staticClass: "required", attrs: { for: "start_date" } },
+                      [_vm._v("تاریخ شروع")]
+                    ),
+                    _vm._v(" "),
+                    _c("Datepicker", {
+                      attrs: { inline: true, placeholder: "تاریخ شروع تور" },
+                      model: {
+                        value: period.start_date,
+                        callback: function($$v) {
+                          _vm.$set(period, "start_date", $$v)
+                        },
+                        expression: "period.start_date"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c(
+                      "label",
+                      { staticClass: "required", attrs: { for: "end_date" } },
+                      [_vm._v("تاریخ پایان")]
+                    ),
+                    _vm._v(" "),
+                    _c("Datepicker", {
+                      attrs: { inline: true, placeholder: "تاریخ پایان تور" },
+                      model: {
+                        value: period.end_date,
+                        callback: function($$v) {
+                          _vm.$set(period, "end_date", $$v)
+                        },
+                        expression: "period.end_date"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ])
+            ])
+          }),
+          _vm._v(" "),
           _c("submit", { on: { click: _vm.handleSubmit } })
         ],
-        1
+        2
       )
     ]
   )
@@ -32495,7 +32695,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "col-md-3" }, [
           _c("div", { staticClass: "form-group" }, [
             _c(
               "label",
@@ -32573,7 +32773,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "col-md-3" }, [
           _c("div", { staticClass: "form-group" }, [
             _c(
               "label",
@@ -32642,7 +32842,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "col-md-3" }, [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { staticClass: "required", attrs: { for: "trips" } }, [
               _vm._v("سفرها")
@@ -32729,7 +32929,7 @@ var render = function() {
                 min: "0",
                 type: "text",
                 id: "price",
-                placeholder: "قیمت"
+                placeholder: "قیمت را وارد نمایید"
               },
               domProps: { value: _vm.form.price },
               on: {
@@ -32744,92 +32944,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "discount" } }, [_vm._v("تخفیف")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.discount,
-                  expression: "form.discount"
-                }
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: {
-                min: "0",
-                type: "text",
-                id: "discount",
-                placeholder: "تخفیف"
-              },
-              domProps: { value: _vm.form.discount },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "discount", $event.target.value)
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c(
-                "label",
-                { staticClass: "required", attrs: { for: "start_date" } },
-                [_vm._v("تاریخ شروع")]
-              ),
-              _vm._v(" "),
-              _c("Datepicker", {
-                attrs: { inline: true, placeholder: "تاریخ شروع تور" },
-                model: {
-                  value: _vm.form.start_date,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "start_date", $$v)
-                  },
-                  expression: "form.start_date"
-                }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c(
-                "label",
-                { staticClass: "required", attrs: { for: "end_date" } },
-                [_vm._v("تاریخ پایان")]
-              ),
-              _vm._v(" "),
-              _c("Datepicker", {
-                attrs: { inline: true, placeholder: "تاریخ پایان تور" },
-                model: {
-                  value: _vm.form.end_date,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "end_date", $$v)
-                  },
-                  expression: "form.end_date"
-                }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "col-md-9" }, [
           _c("label", { attrs: { for: "description" } }, [
             _vm._v("توضیحات تور")
           ]),
@@ -32844,7 +32959,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control form-control-sm",
-            attrs: { cols: "30", rows: "13", id: "description" },
+            attrs: { cols: "10", rows: "5", id: "description" },
             domProps: { value: _vm.form.description },
             on: {
               input: function($event) {
@@ -32857,9 +32972,191 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
+        _c("div", { staticClass: "col-md-12" }, [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("cropper-portlet", {
+                attrs: { title: "تصویر شاخص", place: "left" },
+                model: {
+                  value: _vm.form.profile_image,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "profile_image", $$v)
+                  },
+                  expression: "form.profile_image"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "label",
+              { staticClass: "required", attrs: { for: "tour_leader_id" } },
+              [_vm._v("تور لیدر")]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.tour_leader_id,
+                    expression: "form.tour_leader_id"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: { name: "", id: "tour_leader_id" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "tour_leader_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.tour_leaders, function(tour_leader, key) {
+                return _c(
+                  "option",
+                  { key: key, domProps: { value: tour_leader.id } },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(tour_leader.name) +
+                        "\n                    "
+                    )
+                  ]
+                )
+              }),
+              0
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-12" },
+          [
+            _c(
+              "icon-btn",
+              {
+                attrs: { type: "success", icon: "check" },
+                on: { click: _vm.addPeriod }
+              },
+              [_vm._v("افزودن دوره")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm._l(_vm.periods, function(period, key) {
+          return _c("div", { key: key, staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "discount" } }, [_vm._v("تخفیف")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: period.discount,
+                      expression: "period.discount"
+                    }
+                  ],
+                  staticClass: "form-control form-control-sm",
+                  attrs: {
+                    min: "0",
+                    type: "text",
+                    id: "discount",
+                    placeholder: "تخفیف"
+                  },
+                  domProps: { value: period.discount },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(period, "discount", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c(
+                    "label",
+                    { staticClass: "required", attrs: { for: "start_date" } },
+                    [_vm._v("تاریخ شروع")]
+                  ),
+                  _vm._v(" "),
+                  _c("Datepicker", {
+                    attrs: { inline: true, placeholder: "تاریخ شروع تور" },
+                    model: {
+                      value: period.start_date,
+                      callback: function($$v) {
+                        _vm.$set(period, "start_date", $$v)
+                      },
+                      expression: "period.start_date"
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c(
+                    "label",
+                    { staticClass: "required", attrs: { for: "end_date" } },
+                    [_vm._v("تاریخ پایان")]
+                  ),
+                  _vm._v(" "),
+                  _c("Datepicker", {
+                    attrs: { inline: true, placeholder: "تاریخ پایان تور" },
+                    model: {
+                      value: period.end_date,
+                      callback: function($$v) {
+                        _vm.$set(period, "end_date", $$v)
+                      },
+                      expression: "period.end_date"
+                    }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
+        }),
+        _vm._v(" "),
         _c("submit", { on: { click: _vm.handleSubmit } })
       ],
-      1
+      2
     )
   ])
 }
@@ -33276,9 +33573,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("th", [_vm._v("مقصد")]),
                           _vm._v(" "),
-                          _c("th", [_vm._v("تاریخ شروع")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("تاریخ پایان")]),
+                          _c("th", [_vm._v("تور لیدر")]),
                           _vm._v(" "),
                           _c("th", [_vm._v("عملیات")])
                         ])
@@ -33294,9 +33589,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(tour.to))]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(tour.start_date))]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(tour.end_date))]),
+                            _c("td", [_vm._v(_vm._s(tour.tour_leader.name))]),
                             _vm._v(" "),
                             _c(
                               "td",

@@ -164,7 +164,8 @@ return [
 
     'attributes' => [
         'username' => 'نام کاربری',
-        'first_name' => 'نان',
+        'first_name' => 'نام',
+        'name' => 'نام',
         'last_name' => 'نام خانوادگی',
         'father_name' => 'نام پدر',
         'national_code' => 'کد ملی',
@@ -182,7 +183,8 @@ return [
         'currency_id' => 'نوع ارز',
         'symbol' => 'نماد',
         'wage' => 'کارمزد',
-        'mobile'=>'موبایل'
+        'mobile'=>'موبایل',
+        'description'=>'توضیحات',
     ],
 
 ];

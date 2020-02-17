@@ -63,7 +63,7 @@
                            placeholder="محل اقامت را وارد کنید">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label for="transportation" class="required">حمل و نقل</label>
                     <input v-model="transportation"
@@ -84,7 +84,7 @@
                     </button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label for="travel_style" class="required">نوع سفر</label>
                     <input v-model="travel_style"
@@ -101,7 +101,7 @@
                     </button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label for="trips" class="required">سفرها</label>
                     <input v-model="trips"
@@ -123,35 +123,55 @@
                     <label for="price" class="required">قیمت</label>
                     <input v-model="form.price"
                            min="0"
-                           type="text" class="form-control form-control-sm" id="price" placeholder="قیمت">
+                           type="text" class="form-control form-control-sm" id="price"
+                           placeholder="قیمت را وارد نمایید">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <label for="description">توضیحات تور</label>
+                <textarea class="form-control form-control-sm" cols="10" rows="5" id="description"
+                          v-model="form.description"></textarea>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <cropper-portlet v-model="form.profile_image" title="تصویر شاخص" place="left"/>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <label for="discount">تخفیف</label>
-                    <input v-model="form.discount"
-                           min="0"
-                           type="text" class="form-control form-control-sm" id="discount" placeholder="تخفیف">
+                    <label for="tour_leader_id" class="required">تور لیدر</label>
+                    <select name="" id="tour_leader_id" class="form-control form-control-sm" v-model="form.tour_leader_id">
+                        <option :value="tour_leader.id" v-for="(tour_leader,key) in tour_leaders" :key=key>{{tour_leader.name}}
+                        </option>
+                    </select>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="start_date" class="required">تاریخ شروع</label>
-                    <Datepicker :inline="true"  v-model="form.start_date"  placeholder="تاریخ شروع تور"
-                                 />
-                </div>
+            <div class="col-md-12">
+                <icon-btn @click="addPeriod" type="success" icon="check">افزودن دوره</icon-btn>
             </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="end_date" class="required">تاریخ پایان</label>
-                    <Datepicker :inline="true" v-model="form.end_date"  placeholder="تاریخ پایان تور"
-                                 />
+            <div class="row" v-for="(period,key) in periods" :key=key>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="discount">تخفیف</label>
+                        <input v-model="period.discount"
+                               min="0"
+                               type="text" class="form-control form-control-sm" id="discount" placeholder="تخفیف">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <label for="description">توضیحات تور</label>
-                <textarea class="form-control form-control-sm" cols="30" rows="13" id="description" v-model="form.description"></textarea>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="start_date" class="required">تاریخ شروع</label>
+                        <Datepicker :inline="true" v-model="period.start_date" placeholder="تاریخ شروع تور"
+                        />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="end_date" class="required">تاریخ پایان</label>
+                        <Datepicker :inline="true" v-model="period.end_date" placeholder="تاریخ پایان تور"
+                        />
+                    </div>
+                </div>
             </div>
             <submit @click="handleSubmit"/>
         </div>
@@ -169,19 +189,28 @@
                 transportation: '',
                 travel_style: '',
                 trips: '',
+                periods: [{
+                    start_date: null,
+                    end_date: null,
+                    discount: 0
+                }],
+                tour_leaders: []
             }
         },
         created() {
+            this.getTourLeaders();
             this.form.transportation = [];
             this.form.travel_style = [];
             this.form.trips = [];
+            this.form.periods = [];
         },
 
         methods: {
             handleSubmit() {
-                axios.post(`/tours`,this.form).then(response => {
+                this.form.periods = this.periods;
+                axios.post(`/tours`, this.form).then(response => {
                     this.successNotify(response);
-                    this.$router.push('/tours/ours')
+                      this.$router.push('/tours/ours')
                 }).catch(error => this.errorNotify(error));
             },
             addTransportation() {
@@ -210,6 +239,24 @@
             removeTrips(index) {
                 this.form.trips.splice(index, 1);
                 this.$forceUpdate();
+            },
+            addPeriod() {
+                let item = {
+                    start_date: null,
+                    end_date: null,
+                    discount: 0
+                };
+                this.periods.push(item);
+
+                item = {};
+            },
+            removePeriod() {
+
+            },
+            getTourLeaders() {
+                axios.get('/tour-leaders')
+                    .then(response => this.tour_leaders = response.data)
+                    .catch(error => this.errorNotify(error));
             },
         },
         components: {
