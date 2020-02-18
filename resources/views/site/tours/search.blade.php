@@ -38,7 +38,7 @@
                                         <div class="col-md-9">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <a href="{{route('site.tours.tour',$tour->slug)}}">
+                                                    <a href="/tours/{{$tour->slug}}/{{$period->end_date}}">
                                                         <img style="width: 100%"
                                                              src="{{$tour->profile_image}}"
                                                              alt="">

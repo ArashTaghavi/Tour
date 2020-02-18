@@ -25,7 +25,7 @@ Route::middleware(['web'])->namespace('Site')->group(function () {
         Route::name('tours.')->prefix('tours')->group(function () {
             Route::get('/', 'TourController@index')->name('index');
             Route::get('/search', 'TourController@search')->name('search');
-            Route::get('/{slug}', 'TourController@tour')->name('tour');
+            Route::get('/{slug}/{end_date}', 'TourController@tour')->name('tour');
         });
         // ============================== Tours ==============================
 

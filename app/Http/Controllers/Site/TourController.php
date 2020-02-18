@@ -36,7 +36,7 @@ class TourController extends Controller
     }
 
 
-    public function tour($slug)
+    public function tour($slug, $end_date)
     {
 
         $tour_id = Tour::where('slug', $slug)->first()->id;
@@ -46,7 +46,9 @@ class TourController extends Controller
         else
             $is_user_reserved = false;
 
-        $tour = Tour::with(['itineraryTour', 'images'])->where('slug', $slug)->first();
+        $tour = Tour::with(['itineraryTour', 'images', 'periods' => function ($query) use ($end_date) {
+            $query->where('end_date', $end_date);
+        }])->where('slug', $slug)->first();
         return view('site.tours.tour', compact('tour', 'is_user_reserved'));
 
     }

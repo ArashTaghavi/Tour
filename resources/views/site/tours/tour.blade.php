@@ -122,15 +122,15 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <h6 style="font-size: 20px" class="text-muted2">{{$tour->length()}} Days</h6>
+                <h6 style="font-size: 20px" class="text-muted2">{{$tour->periods[0]->length()}} Days</h6>
                 <h2 style="font-size: 30px;text-align: left">{{$tour->title}}</h2>
                 <p>From <b>{{$tour->from}}</b> To <b>{{$tour->to}}</b></p>
                 <p><b>Age Range</b> :From {{$tour->min_age}} To {{$tour->max_age}}</p>
                 <p>Max Group Size : <b>{{$tour->max_group}}</b></p>
-                @if($tour->discount!=0)
+                @if($tour->periods[0]->discount!=0)
                     <p>From <b style="text-decoration: line-through">{{$tour->price}} $</b>
-                        <span class="badge" style="background: red">{{$tour->discount}} %</span></p>
-                    <p style="font-size: 30px;line-height: 48px;font-weight: 700;">us {{$tour->byDiscount()}} $</p>
+                        <span class="badge" style="background: red">{{$tour->periods[0]->discount}} %</span></p>
+                    <p style="font-size: 30px;line-height: 48px;font-weight: 700;">us {{$tour->periods[0]->byDiscount($tour->price)}} $</p>
                 @else
                     <p>From {{$tour->price}}</p>
                 @endif
@@ -228,4 +228,3 @@
         });
     </script>
 @stop
-
