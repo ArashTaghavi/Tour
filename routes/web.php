@@ -31,7 +31,7 @@ Route::middleware(['web'])->namespace('Site')->group(function () {
 
         // ============================== Reserved Tours ==============================
         Route::name('reserved-tours.')->prefix('reserved-tours.')->group(function () {
-            Route::post('/{slug}', 'ReservedTourController@store')->name('store');
+            Route::post('/{slug}/{end_date}', 'ReservedTourController@store')->name('store');
         });
         // ============================== Reserved Tours ==============================
     });

@@ -2,12 +2,24 @@
 
 namespace App\Http\Controllers\Site;
 
-use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
     public function index()
     {
-        return view('site.index');
+        $panel_address = '';
+
+        if (Auth::check()) {
+            if (Auth::user()->role==User::ADMIN) {
+                $panel_address = '/admin';
+            } else {
+                $panel_address = '/user';
+            }
+        }
+
+
+        return view('site.index',compact('panel_address'));
     }
 }

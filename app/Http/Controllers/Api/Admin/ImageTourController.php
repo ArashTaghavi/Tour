@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Model\Tour;
 use App\Models\ImageTour;
-use App\Models\ItineraryTour;
 use Illuminate\Http\Request;
 
 class ImageTourController extends BaseController
@@ -18,9 +16,9 @@ class ImageTourController extends BaseController
             ->whereHas('images')
             ->with('images')
             ->whereId($id)
-            ->whereOperator(0)
             ->first();
     }
+
 
     public function getById($id)
     {
@@ -68,6 +66,7 @@ class ImageTourController extends BaseController
 
     public function handleValidate($request)
     {
+
         $validator = \Validator::make($request->all(), [
             'title' => 'required',
             'profile_image' => 'required'

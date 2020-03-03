@@ -51,6 +51,40 @@ Route::middleware(['web','auth:web','IsAdmin'])->group(function () {
 
         });
         // ============================== Tour Leaders ==============================
+
+        // ================================ Categories ================================
+        Route::prefix('categories')->name('categories.')->group(function () {
+            Route::get('/', 'CategoryController@index')->name('index');
+            Route::post('/', 'CategoryController@store')->name('store');
+            Route::delete('/{category}', 'CategoryController@destroy')->name('destroy');
+            Route::put('/field-update/{category}/{field}', 'CategoryController@fieldUpdate')->name('field-update');
+            Route::put('/published/{category}', 'CategoryController@published')->name('published');
+        });
+        // ================================ Categories ================================
+
+        // ================================ Posts ================================
+        Route::prefix('posts')->name('posts.')->group(function () {
+            Route::get('/', 'PostController@index')->name('index');
+            Route::get('/{id}', 'PostController@get')->name('get');
+            Route::post('/', 'PostController@store')->name('store');
+            Route::put('/{id}', 'PostController@update')->name('update');
+            Route::delete('/{post}', 'PostController@destroy')->name('destroy');
+            Route::get('/{post_id}/comments', 'PostController@comments')->name('comments');
+        });
+        // ================================ Posts ================================
+
+        // ================================ Comments ================================
+        Route::prefix('comments')->name('comments.')->group(function () {
+            Route::get('/', 'CommentController@index')->name('index');
+            Route::get('/approved', 'CommentController@approved')->name('approved');
+            Route::get('/pending', 'CommentController@pending')->name('pending');
+            Route::put('/{comment}', 'CommentController@doApprove')->name('do-approve');
+            Route::delete('/{comment}', 'CommentController@destroy')->name('destroy');
+            Route::get('/{approved}/search', 'CommentController@search')->name('search');
+        });
+        // ================================ Comments ================================
+
+
     });
 
 });

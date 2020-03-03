@@ -1,4 +1,4 @@
-@extends('layouts.site')
+﻿@extends('layouts.site')
 <style>
     input {
         position: absolute;
@@ -140,9 +140,9 @@
                         @if ($is_user_reserved)
                             <span class="btn btn-warning">You Already Reserved</span>
                         @else
-                            <form method="POST" action="{{route('site.reserved-tours.store',request()->slug)}}">
+                            <form method="POST" action="{{route('site.reserved-tours.store',[request()->slug,request()->end_date])}}">
                                 @csrf
-                                <button class="btn btn-success">Reserve</button>
+                                <button class="btn btn-success">Book</button>
                             </form>
                         @endif
                     @endif

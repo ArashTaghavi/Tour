@@ -138,6 +138,7 @@ body, label, a, p, li, h1, h2, h3, h4, h5, h6, button {
     vertical-align: top !important;
     font-size: 12px !important;
     color: #2c3e50 !important;
+    padding: 1px !important;
 }
 
 .view-tour-btn {

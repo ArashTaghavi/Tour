@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Model\Tour;
+use App\Models\PeriodTour;
 use App\Models\TourUser;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class TourController extends Controller
         $year = Carbon::now()->format('Y');
         $month = $request->month;
         $first_end_date = "$year-$month-01";
-        $last_end_date = "$year-$month-30";
+        $last_end_date = "$year-$month-31";
         $tours = Tour::with(['periods' => function ($query) use ($first_end_date, $last_end_date) {
             $query->where('end_date', '>=', $first_end_date)
                 ->where('end_date', '<=', $last_end_date)
@@ -38,9 +39,10 @@ class TourController extends Controller
 
     public function tour($slug, $end_date)
     {
-
-        $tour_id = Tour::where('slug', $slug)->first()->id;
-        $check = TourUser::where('tour_id', $tour_id)->where('user_id', Auth::id())->first();
+        $period_tour_id = PeriodTour::where('end_date', $end_date)->whereHas('tour', function ($q) use ($slug) {
+            $q->where('slug', $slug);
+        })->first()->id;
+        $check = TourUser::where('period_tour_id', $period_tour_id)->where('user_id', Auth::id())->first();
         if ($check != null)
             $is_user_reserved = true;
         else

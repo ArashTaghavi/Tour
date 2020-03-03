@@ -17,13 +17,13 @@
                             </thead>
                             <tbody>
                             <tr v-for="(tour,index) in tours" :key=index>
-                                <td>{{tour.title}}</td>
-                                <td>{{tour.from}}</td>
-                                <td>{{tour.to}}</td>
+                                <td>{{tour.tour.title}}</td>
+                                <td>{{tour.tour.from}}</td>
+                                <td>{{tour.tour.to}}</td>
                                 <td>{{tour.start_date}}</td>
                                 <td>{{tour.end_date}}</td>
                                 <td>
-                                    <a :href="`/tours/${tour.slug}`" class="btn btn-sm btn-success m-1">
+                                    <a :href="`/tours/${tour.tour.slug}/${tour.end_date}`" class="btn btn-sm btn-success m-1">
                                         مشاهده تور
                                         <i class="fa fa-eye"></i>
                                     </a>

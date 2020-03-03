@@ -7,8 +7,6 @@ use App\Models\ImageTour;
 use App\Models\ItineraryTour;
 use App\Models\PeriodTour;
 use App\Models\TourLeader;
-use App\Models\TourUser;
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -20,6 +18,7 @@ class Tour extends Model
     use HasSlug;
     use HasImage;
     public $image_path = 'tours';
+    public $image_field_name = 'profile_image';
 
     /**
      * Get the options for generating the slug.
@@ -58,10 +57,6 @@ class Tour extends Model
         return $this->hasMany(ItineraryTour::class);
     }
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class)->using(TourUser::class);
-    }
 
     public function periods()
     {

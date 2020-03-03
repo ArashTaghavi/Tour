@@ -15,6 +15,7 @@ class ImageTour extends Model
 
 
     public $image_path = 'image-tour';
+    public $image_field_name = 'profile_image';
 
     public function tour()
     {

@@ -25827,11 +25827,11 @@ var render = function() {
                         "tbody",
                         _vm._l(_vm.tours, function(tour, index) {
                           return _c("tr", { key: index }, [
-                            _c("td", [_vm._v(_vm._s(tour.title))]),
+                            _c("td", [_vm._v(_vm._s(tour.tour.title))]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(tour.from))]),
+                            _c("td", [_vm._v(_vm._s(tour.tour.from))]),
                             _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(tour.to))]),
+                            _c("td", [_vm._v(_vm._s(tour.tour.to))]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(tour.start_date))]),
                             _vm._v(" "),
@@ -25842,7 +25842,13 @@ var render = function() {
                                 "a",
                                 {
                                   staticClass: "btn btn-sm btn-success m-1",
-                                  attrs: { href: "/tours/" + tour.slug }
+                                  attrs: {
+                                    href:
+                                      "/tours/" +
+                                      tour.tour.slug +
+                                      "/" +
+                                      tour.end_date
+                                  }
                                 },
                                 [
                                   _vm._v(

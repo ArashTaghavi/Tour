@@ -6,25 +6,26 @@ use Image;
 
 trait HasImage
 {
+
     public function fillImage($request)
     {
         if (is_array($request)) {
             $request = collect($request);
         }
 
-        $input_image = $request->get('profile_image');
+        $input_image = $request->get($this->image_field_name);
 
         if (!empty($input_image)) {
             $image = $this->upload_image($input_image, $this->image_path);
         } else {
             $image = null;
         }
-        $this->fill(['profile_image' => $image]);
+        $this->fill([$this->image_field_name => $image]);
     }
 
     public function unlinkOriginalImage()
     {
-        $file = public_path($this->getOriginal('profile_image'));
+        $file = public_path($this->getOriginal($this->image_field_name));
         if (is_file($file))
             unlink($file);
     }

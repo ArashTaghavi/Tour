@@ -6,7 +6,7 @@
                     <label for="title" class="required">عنوان</label>
                     <input v-model="form.title"
                            type="text" class="form-control form-control-sm" id="title"
-                           placeholder="عنوان تور را کنید">
+                           placeholder="عنوان را کنید">
                 </div>
             </div>
             <div class="col-md-8">

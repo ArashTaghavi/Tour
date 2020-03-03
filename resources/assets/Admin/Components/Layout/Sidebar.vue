@@ -18,18 +18,34 @@
             </div>
             <ul class="sidebar-menu">
                 <li class="dropdown active">
+                <a href="#" class="nav-link has-dropdown">
+                    <i class="fa fa-home"></i>
+                    <span>مدیریت تور</span></a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <router-link class="nav-link" to="/tours/ours">تور های ما</router-link>
+                    </li>
+                    <li class="">
+                        <router-link class="nav-link" to="/tour-leaders">تور لیدر ها</router-link>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="index2.html">تور های همکاران</a>
+                    </li>
+                </ul>
+            </li>
+                <li class="dropdown">
                     <a href="#" class="nav-link has-dropdown">
-                        <i class="fa fa-home"></i>
-                        <span>مدیریت تور</span></a>
+                        <i class="fa fa-blog"></i>
+                        <span>مدیریت وبلاگ</span></a>
                     <ul class="dropdown-menu">
-                        <li class="active">
-                            <router-link class="nav-link" to="/tours/ours">تور های ما</router-link>
+                        <li class="">
+                            <router-link class="nav-link" to="/categories">دسته بندی ها</router-link>
                         </li>
-                        <li class="active">
-                            <router-link class="nav-link" to="/tour-leaders">تور لیدر ها</router-link>
+                        <li class="">
+                            <router-link class="nav-link" to="/posts">پست ها</router-link>
                         </li>
                         <li>
-                            <a class="nav-link" href="index2.html">تور های همکاران</a>
+                            <router-link class="nav-link" to="/comments">نظرات</router-link>
                         </li>
                     </ul>
                 </li>

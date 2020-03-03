@@ -43,6 +43,7 @@
                                                              src="{{$tour->profile_image}}"
                                                              alt="">
                                                     </a>
+                                                    <img src="/site-assets/images/map.png" alt="" style="width: 100%">
                                                 </div>
                                                 <div class="col-md-8">
                                                     <h4 class="tour-header">
@@ -141,7 +142,7 @@
                                             </table>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-6 col-xs-6">
-                                                    <button class="view-tour-btn">View tour</button>
+                                                    <button class="view-tour-btn"> <a style="color:#fff;text-decoration: none" href="/tours/{{$tour->slug}}/{{$period->end_date}}">View Tour</a></button>
                                                 </div>
                                                 <div class="col-md-12 col-sm-6 col-xs-6">
                                                     <button class="download-btn">Download</button>

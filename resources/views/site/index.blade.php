@@ -1085,8 +1085,8 @@
                             </form>
                         </div>
                     </div>
-                    <div class="phone2">1-917-338-6831</div>
-                    <div class="support1"><a href="#">support@templates-support.com</a></div>
+                   {{-- <div class="phone2">1-917-338-6831</div>--}}
+                    <div class="support1"><a href="#">support@digialpha.net</a></div>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Model\Tour;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class PeriodTour extends Model
@@ -30,5 +31,10 @@ class PeriodTour extends Model
     public function byDiscount($price)
     {
         return round(($price - ($price * $this->discount / 100)), 2);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,TourUser::class)->using(TourUser::class);
     }
 }

@@ -1,6 +1,6 @@
 <template>
         <button :class="`btn btn-sm btn-outline-${type} btn--icon-text m-1`" @click="$emit('click')">
-            <i :class="`zmdi zmdi-${icon}`"></i>
+            <i :class="`fa fa-${icon}`"></i>
             <slot></slot>
         </button>
 </template>

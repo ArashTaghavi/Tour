@@ -9,6 +9,7 @@ class ItineraryTour extends Model
 {
     protected $fillable = ['title', 'description', 'profile_image'];
 
+    public $image_field_name = 'profile_image';
 
     public function tour()
     {

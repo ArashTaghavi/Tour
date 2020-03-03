@@ -80,7 +80,7 @@ class TourController extends BaseController
 
     public function destroy($id)
     {
-        Tour::where('id', $id)->where('operator', 0)->delete();
+        Tour::where('id', $id)->delete();
         return $this->deleteNotify();
     }
 
@@ -103,7 +103,8 @@ class TourController extends BaseController
              'end_date' => 'required',*/
             'price' => 'required',
             // 'periods.*' => 'required',
-            'profile_image'=>'required'
+            'profile_image'=>'required',
+            'tour_leader_id'=>'required'
         ]);
 
         if ($validator->fails()) {

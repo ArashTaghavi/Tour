@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Model\Tour;
+use App\Models\PeriodTour;
 use App\Models\TourUser;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -44,6 +45,6 @@ class User extends Authenticatable
 
     public function tours()
     {
-        return $this->belongsToMany(Tour::class)->using(TourUser::class);
+        return $this->belongsToMany(PeriodTour::class,TourUser::class)->using(TourUser::class);
     }
 }

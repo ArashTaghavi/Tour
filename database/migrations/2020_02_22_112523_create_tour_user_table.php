@@ -17,8 +17,8 @@ class CreateTourUserTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('tour_id');
-            $table->foreign('tour_id')->references('id')->on('tours')->onDelete('cascade');
+            $table->unsignedBigInteger('period_tour_id');
+            $table->foreign('period_tour_id')->references('id')->on('period_tours')->onDelete('cascade');
             $table->timestamps();
         });
     }
