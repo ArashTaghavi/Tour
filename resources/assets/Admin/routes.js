@@ -28,6 +28,14 @@ import CategoriesCreate from './Components/Categories/Create';
 import Comments from './Components/Comments/Index';
 // ========================= Comments =========================
 
+// ========================= Contacts =========================
+import Contacts from './Components/Contacts/Index';
+// ========================= Contacts =========================
+
+// ========================= Settings =========================
+import Settings from './Components/Settings/Index';
+// ========================= Settings =========================
+
 
 export default [
     {path: '/', name: 'داشبورد', component: Dashboard},
@@ -57,6 +65,14 @@ export default [
     // ========================= Comments  =========================
     {path: '/comments', name: 'نظرات', component: Comments},
     // ========================= Comments  =========================
+
+    // ========================= Comments  =========================
+    {path: '/contacts', name: 'تماس با ما', component: Contacts},
+    // ========================= Comments  =========================
+
+    // ========================= Settings  =========================
+    {path: '/settings', name: 'تنظیمات', component: Settings},
+    // ========================= Settings  =========================
 
 
 ]

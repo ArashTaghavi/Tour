@@ -1,5 +1,5 @@
 <?php
-Route::middleware(['web','auth:web','IsAdmin'])->group(function () {
+Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
 
     Route::get('/admin', 'DefaultController@index');
 
@@ -28,7 +28,6 @@ Route::middleware(['web','auth:web','IsAdmin'])->group(function () {
 
         });
         // ============================== Images Tour ==============================
-
 
 
         // ============================== Itinerary Tours ==============================
@@ -81,6 +80,21 @@ Route::middleware(['web','auth:web','IsAdmin'])->group(function () {
             Route::put('/{comment}', 'CommentController@doApprove')->name('do-approve');
             Route::delete('/{comment}', 'CommentController@destroy')->name('destroy');
             Route::get('/{approved}/search', 'CommentController@search')->name('search');
+        });
+        // ================================ Comments ================================
+
+        // ================================ Comments ================================
+        Route::prefix('contacts')->name('contacts.')->group(function () {
+            Route::get('/', 'ContactController@index')->name('index');
+            Route::delete('/{contact}', 'ContactController@destroy')->name('destroy');
+        });
+        // ================================ Comments ================================
+
+        // ================================ Comments ================================
+        Route::prefix('settings')->name('settings.')->group(function () {
+            Route::get('/', 'SettingController@index')->name('index');
+            Route::put('/field-update/{setting}/{field}', 'SettingController@fieldUpdate')->name('field-update');
+
         });
         // ================================ Comments ================================
 

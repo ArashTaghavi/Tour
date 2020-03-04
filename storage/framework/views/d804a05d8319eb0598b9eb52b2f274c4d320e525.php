@@ -79,7 +79,7 @@
 <?php endif; ?>
 
 <div id="main">
-    <?php if(\Illuminate\Support\Facades\Auth::check()): ?>
+
         <div class="top2_wrapper">
             <div class="container">
                 <div class="top2 clearfix">
@@ -110,18 +110,21 @@
         }
 
 ?>
+
                         <div class="navbar-collapse navbar-collapse_ collapse">
                             <ul class="nav navbar-nav sf-menu clearfix">
-
+                                <?php if(\Illuminate\Support\Facades\Auth::check()): ?>
                                 <li><a href="<?php echo e($panel_address); ?>">Panel</a></li>
-
+                                <?php endif; ?>
+                                    <li><a href="/contacts">Contact</a></li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
-    <?php endif; ?>
+
 
     <?php echo $__env->yieldContent('content'); ?>
 

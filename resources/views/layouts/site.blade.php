@@ -79,7 +79,7 @@
 @endif
 
 <div id="main">
-    @if(\Illuminate\Support\Facades\Auth::check())
+
         <div class="top2_wrapper">
             <div class="container">
                 <div class="top2 clearfix">
@@ -110,18 +110,21 @@
         }
 
 @endphp
+
                         <div class="navbar-collapse navbar-collapse_ collapse">
                             <ul class="nav navbar-nav sf-menu clearfix">
-
+                                @if(\Illuminate\Support\Facades\Auth::check())
                                 <li><a href="{{$panel_address}}">Panel</a></li>
-
+                                @endif
+                                    <li><a href="/contacts">Contact</a></li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
-    @endif
+
 
     @yield('content')
 

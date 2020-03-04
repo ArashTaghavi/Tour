@@ -17,22 +17,22 @@
                 </div>
             </div>
             <ul class="sidebar-menu">
-                <li class="dropdown active">
-                <a href="#" class="nav-link has-dropdown">
-                    <i class="fa fa-home"></i>
-                    <span>مدیریت تور</span></a>
-                <ul class="dropdown-menu">
-                    <li class="">
-                        <router-link class="nav-link" to="/tours/ours">تور های ما</router-link>
-                    </li>
-                    <li class="">
-                        <router-link class="nav-link" to="/tour-leaders">تور لیدر ها</router-link>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="index2.html">تور های همکاران</a>
-                    </li>
-                </ul>
-            </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link has-dropdown">
+                        <i class="fa fa-home"></i>
+                        <span>مدیریت تور</span></a>
+                    <ul class="dropdown-menu">
+                        <li class="">
+                            <router-link class="nav-link" to="/tours/ours">تور های ما</router-link>
+                        </li>
+                        <li class="">
+                            <router-link class="nav-link" to="/tour-leaders">تور لیدر ها</router-link>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="index2.html">تور های همکاران</a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="nav-link has-dropdown">
                         <i class="fa fa-blog"></i>
@@ -49,6 +49,19 @@
                         </li>
                     </ul>
                 </li>
+                <li class="">
+                    <router-link to="/contacts" class="nav-link">
+                        <i class="fa fa-phone"></i>
+                        <span>تماس با ما</span>
+                    </router-link>
+                </li>
+                <li class="">
+                    <router-link to="/settings" class="nav-link">
+                        <i class="fa fa-file"></i>
+                        <span>تنظیمات</span>
+                    </router-link>
+                </li>
+
             </ul>
         </aside>
     </div>

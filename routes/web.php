@@ -34,6 +34,13 @@ Route::middleware(['web'])->namespace('Site')->group(function () {
             Route::post('/{slug}/{end_date}', 'ReservedTourController@store')->name('store');
         });
         // ============================== Reserved Tours ==============================
+
+        // ============================== Contact ==============================
+        Route::name('contacts.')->prefix('contacts')->group(function () {
+            Route::get('/', 'ContactController@index')->name('index');
+            Route::post('/', 'ContactController@store')->name('store');
+        });
+        // ============================== Contact ==============================
     });
 });
 
