@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Model\Tour;
+use App\Models\Hotel;
 use App\Models\PeriodTour;
 use App\Models\TourUser;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -45,6 +45,11 @@ class User extends Authenticatable
 
     public function tours()
     {
-        return $this->belongsToMany(PeriodTour::class,TourUser::class)->using(TourUser::class);
+        return $this->belongsToMany(PeriodTour::class, TourUser::class)->using(TourUser::class);
+    }
+
+    public function hotels()
+    {
+        return $this->hasMany(Hotel::class);
     }
 }

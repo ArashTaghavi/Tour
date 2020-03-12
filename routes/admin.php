@@ -1,5 +1,5 @@
 <?php
-Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
+Route::middleware(['web', 'auth:web'])->group(function () {
 
     Route::get('/admin', 'DefaultController@index');
 
@@ -27,7 +27,7 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
 
 
         });
-        // ============================== Images Tour ==============================
+        // ============================== Images Tours ==============================
 
 
         // ============================== Itinerary Tours ==============================
@@ -72,6 +72,49 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
         });
         // ================================ Posts ================================
 
+
+        // ============================== Hotels ==============================
+        Route::name('hotels.')->prefix('hotels')->group(function () {
+            Route::get('/', 'HotelController@our_hotels')->name('our_hotels');
+            Route::get('/{id}', 'HotelController@get')->name('get');
+            Route::post('/', 'HotelController@store')->name('store');
+            Route::put('/{id}', 'HotelController@update')->name('update');
+            Route::delete('/{id}', 'HotelController@destroy')->name('destroy');
+        });
+        // ============================== Hotels ==============================
+
+        // ============================== Hotel Images ==============================
+        Route::name('hotel-images.')->prefix('hotel-images')->group(function () {
+            Route::get('/{id}', 'HotelImageController@index')->name('index');
+            Route::post('/{id}', 'HotelImageController@store')->name('store');
+            Route::delete('/{id}', 'HotelImageController@destroy')->name('destroy');
+
+        });
+        // ============================== Hotel Images ==============================
+
+
+        // ============================== Hotel Rooms ==============================
+        Route::name('hotel-rooms.')->prefix('hotel-rooms')->group(function () {
+            Route::get('/{id}','HotelRoomController@index')->name('index');
+            Route::get('/get/{id}','HotelRoomController@get')->name('get');
+            Route::post('/{id}','HotelRoomController@store')->name('store');
+            Route::put('/{id}','HotelRoomController@update')->name('update');
+            Route::put('/discount/{id}','HotelRoomController@discountUpdate')->name('discount-update');
+            Route::put('/handle-reserve/{id}','HotelRoomController@handleReserve')->name('handle-reserve');
+            Route::delete('/{id}','HotelRoomController@destroy')->name('destroy');
+        });
+        // ============================== Hotel Rooms ==============================
+
+        // ============================== Image Rooms ==============================
+        Route::name('image-rooms.')->prefix('image-rooms')->group(function () {
+            Route::get('/{id}', 'ImageRoomController@index')->name('index');
+            Route::post('/{id}', 'ImageRoomController@store')->name('store');
+            Route::delete('/{id}', 'ImageRoomController@destroy')->name('destroy');
+
+        });
+        // ============================== Image Rooms ==============================
+
+
         // ================================ Comments ================================
         Route::prefix('comments')->name('comments.')->group(function () {
             Route::get('/', 'CommentController@index')->name('index');
@@ -83,20 +126,20 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
         });
         // ================================ Comments ================================
 
-        // ================================ Comments ================================
+        // ================================ Contacts ================================
         Route::prefix('contacts')->name('contacts.')->group(function () {
             Route::get('/', 'ContactController@index')->name('index');
             Route::delete('/{contact}', 'ContactController@destroy')->name('destroy');
         });
-        // ================================ Comments ================================
+        // ================================ Contacts ================================
 
-        // ================================ Comments ================================
+        // ================================ Settings ================================
         Route::prefix('settings')->name('settings.')->group(function () {
             Route::get('/', 'SettingController@index')->name('index');
             Route::put('/field-update/{setting}/{field}', 'SettingController@fieldUpdate')->name('field-update');
 
         });
-        // ================================ Comments ================================
+        // ================================ Settings ================================
 
 
     });

@@ -2589,6 +2589,914 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.form.country = 'ایران';
+  },
+  methods: {
+    handleSubmit: function handleSubmit() {
+      var _this = this;
+
+      axios.post("/hotels", this.form).then(function (response) {
+        _this.successNotify(response);
+
+        _this.$router.push('/hotels/ours');
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.getHotel();
+  },
+  methods: {
+    handleSubmit: function handleSubmit() {
+      var _this = this;
+
+      axios.put("/hotels/".concat(this.$route.params.id), this.form).then(function (response) {
+        _this.successNotify(response);
+
+        _this.$router.push('/hotels/ours');
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    getHotel: function getHotel() {
+      var _this2 = this;
+
+      axios.get("/hotels/".concat(this.$route.params.id)).then(function (response) {
+        return _this2.form = response.data;
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      gallery: []
+    };
+  },
+  created: function created() {
+    this.getGallery();
+  },
+  methods: {
+    handleSubmit: function handleSubmit() {
+      var _this = this;
+
+      axios.post("/hotel-images/".concat(this.$route.params.id), this.form).then(function (response) {
+        _this.successNotify(response);
+
+        _this.getGallery();
+
+        _this.emptyForm();
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    getGallery: function getGallery() {
+      var _this2 = this;
+
+      axios.get("/hotel-images/".concat(this.$route.params.id)).then(function (response) {
+        return _this2.gallery = response.data;
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    },
+    handleDelete: function handleDelete(id) {
+      var _this3 = this;
+
+      axios["delete"]("/hotel-images/".concat(id)).then(function (response) {
+        _this3.successNotify(response);
+
+        _this3.getGallery();
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      hotels: []
+    };
+  },
+  created: function created() {
+    this.getHotels();
+  },
+  methods: {
+    getHotels: function getHotels() {
+      var _this = this;
+
+      axios.get('/hotels').then(function (response) {
+        return _this.hotels = response.data;
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    handleDelete: function handleDelete(id) {
+      var _this2 = this;
+
+      axios["delete"]("/hotels/".concat(id)).then(function (response) {
+        _this2.successNotify(response);
+
+        _this2.getHotels();
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      rooms: [],
+      option: []
+    };
+  },
+  created: function created() {
+    this.form.options = [];
+    this.getRooms();
+  },
+  methods: {
+    getRooms: function getRooms() {
+      var _this = this;
+
+      axios.get("/hotel-rooms/".concat(this.$route.params.id)).then(function (response) {
+        return _this.rooms = response.data;
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    handleSubmit: function handleSubmit() {
+      var _this2 = this;
+
+      axios.post("/hotel-rooms/".concat(this.$route.params.id), this.form).then(function (response) {
+        _this2.successNotify(response);
+
+        _this2.$router.go(-1);
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    },
+    addOption: function addOption() {
+      if (this.option !== '') this.form.options.push(this.option);
+      this.option = '';
+    },
+    removeOption: function removeOption(index) {
+      this.form.options.splice(index, 1);
+      this.$forceUpdate();
+    },
+    handleDelete: function handleDelete(id) {
+      var _this3 = this;
+
+      axios["delete"]("/hotel-rooms/".concat(id)).then(function (response) {
+        _this3.successNotify(response);
+
+        _this3.getRooms();
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuejs_datepicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuejs-datepicker */ "./node_modules/vuejs-datepicker/dist/vuejs-datepicker.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.getDiscount();
+  },
+  methods: {
+    getDiscount: function getDiscount() {
+      var _this = this;
+
+      axios.get("/hotel-rooms/get/".concat(this.$route.params.id)).then(function (response) {
+        return _this.form = response.data;
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    handleSubmit: function handleSubmit() {
+      var _this2 = this;
+
+      axios.put("/hotel-rooms/discount/".concat(this.$route.params.id), this.form).then(function (response) {
+        _this2.successNotify(response);
+
+        _this2.$router.go(-1);
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    }
+  },
+  components: {
+    Datepicker: vuejs_datepicker__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      option: []
+    };
+  },
+  created: function created() {
+    this.getRoom();
+  },
+  methods: {
+    getRoom: function getRoom() {
+      var _this = this;
+
+      axios.get("/hotel-rooms/get/".concat(this.$route.params.id)).then(function (response) {
+        return _this.form = response.data;
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    handleSubmit: function handleSubmit() {
+      var _this2 = this;
+
+      axios.put("/hotel-rooms/".concat(this.$route.params.id), this.form).then(function (response) {
+        _this2.successNotify(response);
+
+        _this2.$router.go(-1);
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    },
+    addOption: function addOption() {
+      if (this.option !== '') this.form.options.push(this.option);
+      this.option = '';
+    },
+    removeOption: function removeOption(index) {
+      this.form.options.splice(index, 1);
+      this.$forceUpdate();
+    },
+    handleDelete: function handleDelete(id) {
+      var _this3 = this;
+
+      axios["delete"]("/hotel-rooms/".concat(id)).then(function (response) {
+        _this3.successNotify(response);
+
+        _this3.getRooms();
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      gallery: []
+    };
+  },
+  created: function created() {
+    this.getGallery();
+  },
+  methods: {
+    handleSubmit: function handleSubmit() {
+      var _this = this;
+
+      axios.post("/image-rooms/".concat(this.$route.params.id), this.form).then(function (response) {
+        _this.successNotify(response);
+
+        _this.getGallery();
+
+        _this.emptyForm();
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    getGallery: function getGallery() {
+      var _this2 = this;
+
+      axios.get("/image-rooms/".concat(this.$route.params.id)).then(function (response) {
+        return _this2.gallery = response.data;
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    },
+    handleDelete: function handleDelete(id) {
+      var _this3 = this;
+
+      axios["delete"]("/image-rooms/".concat(id)).then(function (response) {
+        _this3.successNotify(response);
+
+        _this3.getGallery();
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      rooms: []
+    };
+  },
+  created: function created() {
+    this.getRooms();
+  },
+  methods: {
+    getRooms: function getRooms() {
+      var _this = this;
+
+      axios.get("/hotel-rooms/".concat(this.$route.params.id)).then(function (response) {
+        return _this.rooms = response.data;
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    handleReserve: function handleReserve(id) {
+      var _this2 = this;
+
+      axios.put("/hotel-rooms/handle-reserve/".concat(id)).then(function (response) {
+        return _this2.getRooms();
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    },
+    handleDelete: function handleDelete(id) {
+      var _this3 = this;
+
+      axios["delete"]("/hotel-rooms/".concat(id)).then(function (response) {
+        _this3.successNotify(response);
+
+        _this3.getRooms();
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Layout/Header.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Layout/Header.vue?vue&type=script&lang=js& ***!
@@ -2739,6 +3647,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -31970,6 +32891,1676 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=template&id=3165c40e&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=template&id=3165c40e& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: _vm.$route.name, active_loading: false } },
+    [
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "title" } },
+                [_vm._v("نام")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.title,
+                    expression: "form.title"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "title",
+                  placeholder: "نام هتل را وارد کنید"
+                },
+                domProps: { value: _vm.form.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "title", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "country" } },
+                [_vm._v("کشور")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.country,
+                    expression: "form.country"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "country",
+                  placeholder: "کشور را وارد کنید"
+                },
+                domProps: { value: _vm.form.country },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "country", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { staticClass: "required", attrs: { for: "city" } }, [
+                _vm._v("شهر")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.city,
+                    expression: "form.city"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "city",
+                  placeholder: "شهر را وارد کنید"
+                },
+                domProps: { value: _vm.form.city },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "city", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { staticClass: "required", attrs: { for: "star" } }, [
+                _vm._v("ستاره")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.star,
+                    expression: "form.star"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "star",
+                  placeholder: "ستاره را وارد کنید"
+                },
+                domProps: { value: _vm.form.star },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "star", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "phone" } },
+                [_vm._v("تلفن")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.phone,
+                    expression: "form.phone"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "phone",
+                  placeholder: "تلفن را وارد کنید"
+                },
+                domProps: { value: _vm.form.phone },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "phone", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-9" }, [
+            _c(
+              "label",
+              { staticClass: "required", attrs: { for: "address" } },
+              [_vm._v("آدرس")]
+            ),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.address,
+                  expression: "form.address"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: { cols: "10", rows: "5", id: "address" },
+              domProps: { value: _vm.form.address },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "address", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "div",
+              { staticClass: "form-group mt-5" },
+              [
+                _c("cropper-portlet", {
+                  attrs: { title: "تصویر شاخص", place: "left" },
+                  model: {
+                    value: _vm.form.profile_image,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "profile_image", $$v)
+                    },
+                    expression: "form.profile_image"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("submit", { on: { click: _vm.handleSubmit } })
+        ],
+        1
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=template&id=3452ed72&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=template&id=3452ed72& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: _vm.$route.name, active_loading: false } },
+    [
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "title" } },
+                [_vm._v("نام")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.title,
+                    expression: "form.title"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "title",
+                  placeholder: "نام هتل را وارد کنید"
+                },
+                domProps: { value: _vm.form.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "title", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "country" } },
+                [_vm._v("کشور")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.country,
+                    expression: "form.country"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "country",
+                  placeholder: "کشور را وارد کنید"
+                },
+                domProps: { value: _vm.form.country },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "country", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { staticClass: "required", attrs: { for: "city" } }, [
+                _vm._v("شهر")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.city,
+                    expression: "form.city"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "city",
+                  placeholder: "شهر را وارد کنید"
+                },
+                domProps: { value: _vm.form.city },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "city", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { staticClass: "required", attrs: { for: "star" } }, [
+                _vm._v("ستاره")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.star,
+                    expression: "form.star"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "star",
+                  placeholder: "ستاره را وارد کنید"
+                },
+                domProps: { value: _vm.form.star },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "star", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "phone" } },
+                [_vm._v("تلفن")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.phone,
+                    expression: "form.phone"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "phone",
+                  placeholder: "تلفن را وارد کنید"
+                },
+                domProps: { value: _vm.form.phone },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "phone", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-9" }, [
+            _c(
+              "label",
+              { staticClass: "required", attrs: { for: "address" } },
+              [_vm._v("آدرس")]
+            ),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.address,
+                  expression: "form.address"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: { cols: "10", rows: "5", id: "address" },
+              domProps: { value: _vm.form.address },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "address", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "div",
+              { staticClass: "form-group mt-5" },
+              [
+                _c("cropper-portlet", {
+                  attrs: { title: "تصویر شاخص", place: "left" },
+                  model: {
+                    value: _vm.form.profile_image,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "profile_image", $$v)
+                    },
+                    expression: "form.profile_image"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("submit", { on: { click: _vm.handleSubmit } })
+        ],
+        1
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=template&id=bb72d5b6&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=template&id=bb72d5b6& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: _vm.$route.name, active_loading: false } },
+    [
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _c("div", { staticClass: "col-md-12 text-right" }, [
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("cropper-portlet", {
+                  attrs: { title: "تصویر پروفایل", place: "right" },
+                  model: {
+                    value: _vm.form.profile_image,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "profile_image", $$v)
+                    },
+                    expression: "form.profile_image"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("submit", { on: { click: _vm.handleSubmit } })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.gallery.images != null
+        ? _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("div", { staticClass: "section-title" }, [
+                _vm._v("گالری هتل")
+              ]),
+              _vm._v(" "),
+              _c("table", { staticClass: "table table-sm table-text-center" }, [
+                _c("thead", [
+                  _c("tr", [_c("th", [_vm._v("تصویر")]), _vm._v(" "), _c("th")])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.gallery.images, function(gallery, key) {
+                    return _c("tr", { key: key }, [
+                      _c("td", [
+                        _c("img", {
+                          staticStyle: { "max-width": "100%" },
+                          attrs: { src: gallery.profile_image, alt: gallery.id }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        [_c("delete-btn", { attrs: { id: gallery.id } })],
+                        1
+                      )
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ])
+          ])
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=template&id=16b25965&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=template&id=16b25965& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: _vm.$route.name } },
+    [
+      _c("add-btn", { attrs: { to: "/hotels" } }),
+      _vm._v(" "),
+      _vm.hotels.length
+        ? _c("div", { staticClass: "table-responsive" }, [
+            _c(
+              "div",
+              {
+                staticClass: "container-fluid dt-bootstrap4 no-footer",
+                attrs: { id: "table-1_wrapper" }
+              },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-12" }, [
+                    _c("table", { staticClass: "table table-sm" }, [
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", [_vm._v("عنوان")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("شهر")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("ستاره")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("عملیات")])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.hotels, function(hotel, index) {
+                          return _c("tr", { key: index }, [
+                            _c("td", [_vm._v(_vm._s(hotel.title))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(hotel.city))]),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              _vm._l(hotel.star, function(star) {
+                                return _c("span", {
+                                  staticClass: "fa fa-star",
+                                  staticStyle: { color: "goldenrod" }
+                                })
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              [
+                                _c("delete-btn", { attrs: { id: hotel.id } }),
+                                _vm._v(" "),
+                                _c("edit-btn", {
+                                  attrs: { to: "" + hotel.id }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "link-btn",
+                                  {
+                                    attrs: {
+                                      type: "warning",
+                                      icon: "file",
+                                      to: "/hotels/" + hotel.id + "/gallery"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    گالری\n                                "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "link-btn",
+                                  {
+                                    attrs: {
+                                      type: "info",
+                                      icon: "home",
+                                      to: "/hotels/" + hotel.id + "/room"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    اتاق\n                                "
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        : _c("not-found")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=template&id=2026f460&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=template&id=2026f460& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: _vm.$route.name, active_loading: false } },
+    [
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _c("div", { staticClass: "col-md-2" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "floor" } },
+                [_vm._v("عنوان")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.floor,
+                    expression: "form.floor"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "number",
+                  id: "floor",
+                  placeholder: "طبقه را وارد کنید"
+                },
+                domProps: { value: _vm.form.floor },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "floor", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-2" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "number" } },
+                [_vm._v("شماره اتاق")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.number,
+                    expression: "form.number"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "number",
+                  id: "number",
+                  placeholder: "شماره اتاق را وارد کنید"
+                },
+                domProps: { value: _vm.form.number },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "number", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-5" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "travel_style" } },
+                [_vm._v("امکانات رفاهی")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.option,
+                    expression: "option"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  id: "travel_style",
+                  placeholder: "امکانات رفاهی را وارد کنید و اینتر بزنید"
+                },
+                domProps: { value: _vm.option },
+                on: {
+                  keypress: function($event) {
+                    if (
+                      !$event.type.indexOf("key") &&
+                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                    ) {
+                      return null
+                    }
+                    return _vm.addOption($event)
+                  },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.option = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "btn-group" },
+              _vm._l(_vm.form.options, function(value, index) {
+                return _c("button", { staticClass: "btn btn-sm btn-info" }, [
+                  _c("span", [_vm._v(_vm._s(value))]),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass: "ml-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.removeOption(index)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fa fa-window-close" })]
+                  )
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "price" } },
+                [_vm._v("قیمت")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.price,
+                    expression: "form.price"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  min: "0",
+                  type: "text",
+                  id: "price",
+                  placeholder: "قیمت را وارد نمایید"
+                },
+                domProps: { value: _vm.form.price },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "price", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "description" } }, [
+                _vm._v("توضیحات")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.description,
+                    expression: "form.description"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "text",
+                  rows: "5",
+                  id: "description",
+                  placeholder: "توضیحات را وارد کنید"
+                },
+                domProps: { value: _vm.form.description },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "description", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "div",
+              { staticClass: "form-group mt-5" },
+              [
+                _c("cropper-portlet", {
+                  attrs: { title: "تصویر شاخص", place: "left" },
+                  model: {
+                    value: _vm.form.profile_image,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "profile_image", $$v)
+                    },
+                    expression: "form.profile_image"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("submit", { on: { click: _vm.handleSubmit } })
+        ],
+        1
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=template&id=a9e2ded6&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=template&id=a9e2ded6& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("card", { attrs: { title: _vm.$route.name } }, [
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _c("div", { staticClass: "col-md-2" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "label",
+              { staticClass: "required", attrs: { for: "discount" } },
+              [_vm._v("عنوان")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.discount,
+                  expression: "form.discount"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                type: "number",
+                id: "discount",
+                placeholder: "تخفیف را وارد کنید"
+              },
+              domProps: { value: _vm.form.discount },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "discount", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" }, [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "start_date" } },
+                [_vm._v("تاریخ شروع")]
+              ),
+              _vm._v(" "),
+              _c("Datepicker", {
+                attrs: { inline: true, placeholder: "تاریخ شروع تور" },
+                model: {
+                  value: _vm.form.start_date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "start_date", $$v)
+                  },
+                  expression: "form.start_date"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" }, [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "end_date" } },
+                [_vm._v("تاریخ پایان")]
+              ),
+              _vm._v(" "),
+              _c("Datepicker", {
+                attrs: { inline: true, placeholder: "تاریخ پایان تور" },
+                model: {
+                  value: _vm.form.end_date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "end_date", $$v)
+                  },
+                  expression: "form.end_date"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("submit", { on: { click: _vm.handleSubmit } })
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=template&id=260bfade&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=template&id=260bfade& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("card", { attrs: { title: _vm.$route.name } }, [
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _c("div", { staticClass: "col-md-2" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "required", attrs: { for: "floor" } }, [
+              _vm._v("عنوان")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.floor,
+                  expression: "form.floor"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                type: "number",
+                id: "floor",
+                placeholder: "طبقه را وارد کنید"
+              },
+              domProps: { value: _vm.form.floor },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "floor", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "required", attrs: { for: "number" } }, [
+              _vm._v("شماره اتاق")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.number,
+                  expression: "form.number"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                type: "number",
+                id: "number",
+                placeholder: "شماره اتاق را وارد کنید"
+              },
+              domProps: { value: _vm.form.number },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "number", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-5" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "label",
+              { staticClass: "required", attrs: { for: "travel_style" } },
+              [_vm._v("امکانات رفاهی")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.option,
+                  expression: "option"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                type: "text",
+                id: "travel_style",
+                placeholder: "امکانات رفاهی را وارد کنید و اینتر بزنید"
+              },
+              domProps: { value: _vm.option },
+              on: {
+                keypress: function($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.addOption($event)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.option = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "btn-group" },
+            _vm._l(_vm.form.options, function(value, index) {
+              return _c("button", { staticClass: "btn btn-sm btn-info" }, [
+                _c("span", [_vm._v(_vm._s(value))]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "ml-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.removeOption(index)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-window-close" })]
+                )
+              ])
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "required", attrs: { for: "price" } }, [
+              _vm._v("قیمت")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.price,
+                  expression: "form.price"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                min: "0",
+                type: "text",
+                id: "price",
+                placeholder: "قیمت را وارد نمایید"
+              },
+              domProps: { value: _vm.form.price },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "price", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-8" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "description" } }, [_vm._v("توضیحات")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.description,
+                  expression: "form.description"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                type: "text",
+                rows: "5",
+                id: "description",
+                placeholder: "توضیحات را وارد کنید"
+              },
+              domProps: { value: _vm.form.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "description", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-12" }, [
+          _c(
+            "div",
+            { staticClass: "form-group mt-5" },
+            [
+              _c("cropper-portlet", {
+                attrs: { title: "تصویر شاخص", place: "left" },
+                model: {
+                  value: _vm.form.profile_image,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "profile_image", $$v)
+                  },
+                  expression: "form.profile_image"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("submit", { on: { click: _vm.handleSubmit } })
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=template&id=a4d7afa4&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=template&id=a4d7afa4& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: _vm.$route.name, active_loading: false } },
+    [
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _c("div", { staticClass: "col-md-12 text-right" }, [
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("cropper-portlet", {
+                  attrs: { title: "تصویر پروفایل", place: "right" },
+                  model: {
+                    value: _vm.form.profile_image,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "profile_image", $$v)
+                    },
+                    expression: "form.profile_image"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("submit", { on: { click: _vm.handleSubmit } })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.gallery.images != null
+        ? _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("div", { staticClass: "section-title" }, [
+                _vm._v("گالری هتل")
+              ]),
+              _vm._v(" "),
+              _c("table", { staticClass: "table table-sm table-text-center" }, [
+                _c("thead", [
+                  _c("tr", [_c("th", [_vm._v("تصویر")]), _vm._v(" "), _c("th")])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.gallery.images, function(gallery, key) {
+                    return _c("tr", { key: key }, [
+                      _c("td", [
+                        _c("img", {
+                          staticStyle: { "max-width": "100%" },
+                          attrs: { src: gallery.profile_image, alt: gallery.id }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        [_c("delete-btn", { attrs: { id: gallery.id } })],
+                        1
+                      )
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ])
+          ])
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=template&id=45a9caa4&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=template&id=45a9caa4& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: _vm.$route.name } },
+    [
+      _c("add-btn", {
+        attrs: { to: "/hotels/" + _vm.$route.params.id + "/room" }
+      }),
+      _vm._v(" "),
+      _vm.rooms.length
+        ? _c("div", { staticClass: "table-responsive" }, [
+            _c(
+              "div",
+              {
+                staticClass: "container-fluid dt-bootstrap4 no-footer",
+                attrs: { id: "table-1_wrapper" }
+              },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-12" }, [
+                    _c("table", { staticClass: "table table-sm" }, [
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", [_vm._v("شماره اتاق")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("تخفیف")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("عملیات")])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.rooms, function(room, index) {
+                          return _c("tr", { key: index }, [
+                            _c("td", [_vm._v(_vm._s(room.number))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v("% " + _vm._s(room.discount))]),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              [
+                                _c("delete-btn", { attrs: { id: room.id } }),
+                                _vm._v(" "),
+                                _c(
+                                  "router-link",
+                                  {
+                                    attrs: {
+                                      to: "/hotels/room/" + room.id + "/edit"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-icon btn-sm icon-left btn-info"
+                                      },
+                                      [
+                                        _c("i", { staticClass: "fa fa-edit" }),
+                                        _vm._v(
+                                          "\n                                        ویرایش\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "link-btn",
+                                  {
+                                    attrs: {
+                                      type: "warning",
+                                      icon: "file",
+                                      to: "/hotels/room/" + room.id + "/gallery"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    گالری\n                                "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "link-btn",
+                                  {
+                                    attrs: {
+                                      icon: "home",
+                                      to:
+                                        "/hotels/room/" + room.id + "/discount"
+                                    }
+                                  },
+                                  [_vm._v("تخفیف")]
+                                ),
+                                _vm._v(" "),
+                                room.is_reserved == 1
+                                  ? _c(
+                                      "icon-btn",
+                                      {
+                                        attrs: {
+                                          type: "danger",
+                                          icon: "window-close"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.handleReserve(room.id)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "تخلیه\n                                "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                room.is_reserved == 0
+                                  ? _c(
+                                      "icon-btn",
+                                      {
+                                        attrs: {
+                                          type: "primary",
+                                          icon: "check"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.handleReserve(room.id)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "رزرو\n                                "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        : _c("not-found")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Layout/Header.vue?vue&type=template&id=226e65dd&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Layout/Header.vue?vue&type=template&id=226e65dd& ***!
@@ -32608,6 +35199,27 @@ var render = function() {
               [
                 _c(
                   "router-link",
+                  { staticClass: "nav-link", attrs: { to: "/hotels/ours" } },
+                  [_vm._v("هتل های ما")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(5)
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "dropdown" }, [
+          _vm._m(6),
+          _vm._v(" "),
+          _c("ul", { staticClass: "dropdown-menu" }, [
+            _c(
+              "li",
+              {},
+              [
+                _c(
+                  "router-link",
                   { staticClass: "nav-link", attrs: { to: "/categories" } },
                   [_vm._v("دسته بندی ها")]
                 )
@@ -32735,6 +35347,30 @@ var staticRenderFns = [
     return _c("li", [
       _c("a", { staticClass: "nav-link", attrs: { href: "index2.html" } }, [
         _vm._v("تور های همکاران")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "nav-link has-dropdown", attrs: { href: "#" } },
+      [
+        _c("i", { staticClass: "fa fa-home" }),
+        _vm._v(" "),
+        _c("span", [_vm._v("مدیریت هتل")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { staticClass: "nav-link", attrs: { href: "index2.html" } }, [
+        _vm._v("هتل های همکاران")
       ])
     ])
   },
@@ -53990,6 +56626,627 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Create.vue":
+/*!******************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Create.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Create_vue_vue_type_template_id_3165c40e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Create.vue?vue&type=template&id=3165c40e& */ "./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=template&id=3165c40e&");
+/* harmony import */ var _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Create.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Create_vue_vue_type_template_id_3165c40e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Create_vue_vue_type_template_id_3165c40e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Hotels/Ours/Create.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=template&id=3165c40e&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=template&id=3165c40e& ***!
+  \*************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3165c40e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=template&id=3165c40e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Create.vue?vue&type=template&id=3165c40e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3165c40e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3165c40e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Edit.vue":
+/*!****************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Edit.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Edit_vue_vue_type_template_id_3452ed72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit.vue?vue&type=template&id=3452ed72& */ "./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=template&id=3452ed72&");
+/* harmony import */ var _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Edit_vue_vue_type_template_id_3452ed72___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Edit_vue_vue_type_template_id_3452ed72___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Hotels/Ours/Edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=template&id=3452ed72&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=template&id=3452ed72& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_3452ed72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=template&id=3452ed72& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Edit.vue?vue&type=template&id=3452ed72&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_3452ed72___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_3452ed72___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Gallery_vue_vue_type_template_id_bb72d5b6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Gallery.vue?vue&type=template&id=bb72d5b6& */ "./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=template&id=bb72d5b6&");
+/* harmony import */ var _Gallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Gallery.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Gallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Gallery_vue_vue_type_template_id_bb72d5b6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Gallery_vue_vue_type_template_id_bb72d5b6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Hotels/Ours/Gallery.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Gallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Gallery.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Gallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=template&id=bb72d5b6&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=template&id=bb72d5b6& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Gallery_vue_vue_type_template_id_bb72d5b6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Gallery.vue?vue&type=template&id=bb72d5b6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue?vue&type=template&id=bb72d5b6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Gallery_vue_vue_type_template_id_bb72d5b6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Gallery_vue_vue_type_template_id_bb72d5b6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Index.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Index.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Index_vue_vue_type_template_id_16b25965___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=16b25965& */ "./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=template&id=16b25965&");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Index_vue_vue_type_template_id_16b25965___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Index_vue_vue_type_template_id_16b25965___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Hotels/Ours/Index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=template&id=16b25965&":
+/*!************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=template&id=16b25965& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_16b25965___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=template&id=16b25965& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Index.vue?vue&type=template&id=16b25965&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_16b25965___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_16b25965___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue":
+/*!************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Create_vue_vue_type_template_id_2026f460___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Create.vue?vue&type=template&id=2026f460& */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=template&id=2026f460&");
+/* harmony import */ var _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Create.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Create_vue_vue_type_template_id_2026f460___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Create_vue_vue_type_template_id_2026f460___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=template&id=2026f460&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=template&id=2026f460& ***!
+  \*******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_2026f460___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=template&id=2026f460& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue?vue&type=template&id=2026f460&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_2026f460___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_2026f460___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Discount_vue_vue_type_template_id_a9e2ded6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Discount.vue?vue&type=template&id=a9e2ded6& */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=template&id=a9e2ded6&");
+/* harmony import */ var _Discount_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Discount.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Discount_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Discount_vue_vue_type_template_id_a9e2ded6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Discount_vue_vue_type_template_id_a9e2ded6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Discount_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Discount.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Discount_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=template&id=a9e2ded6&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=template&id=a9e2ded6& ***!
+  \*********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Discount_vue_vue_type_template_id_a9e2ded6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Discount.vue?vue&type=template&id=a9e2ded6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue?vue&type=template&id=a9e2ded6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Discount_vue_vue_type_template_id_a9e2ded6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Discount_vue_vue_type_template_id_a9e2ded6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Edit_vue_vue_type_template_id_260bfade___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit.vue?vue&type=template&id=260bfade& */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=template&id=260bfade&");
+/* harmony import */ var _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Edit_vue_vue_type_template_id_260bfade___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Edit_vue_vue_type_template_id_260bfade___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=template&id=260bfade&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=template&id=260bfade& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_260bfade___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=template&id=260bfade& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue?vue&type=template&id=260bfade&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_260bfade___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_260bfade___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Gallery_vue_vue_type_template_id_a4d7afa4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Gallery.vue?vue&type=template&id=a4d7afa4& */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=template&id=a4d7afa4&");
+/* harmony import */ var _Gallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Gallery.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Gallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Gallery_vue_vue_type_template_id_a4d7afa4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Gallery_vue_vue_type_template_id_a4d7afa4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Gallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Gallery.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Gallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=template&id=a4d7afa4&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=template&id=a4d7afa4& ***!
+  \********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Gallery_vue_vue_type_template_id_a4d7afa4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Gallery.vue?vue&type=template&id=a4d7afa4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue?vue&type=template&id=a4d7afa4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Gallery_vue_vue_type_template_id_a4d7afa4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Gallery_vue_vue_type_template_id_a4d7afa4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue":
+/*!***********************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Index_vue_vue_type_template_id_45a9caa4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=45a9caa4& */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=template&id=45a9caa4&");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Index_vue_vue_type_template_id_45a9caa4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Index_vue_vue_type_template_id_45a9caa4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=template&id=45a9caa4&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=template&id=45a9caa4& ***!
+  \******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_45a9caa4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Index.vue?vue&type=template&id=45a9caa4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue?vue&type=template&id=45a9caa4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_45a9caa4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_45a9caa4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/Admin/Components/Layout/Header.vue":
 /*!*************************************************************!*\
   !*** ./resources/assets/Admin/Components/Layout/Header.vue ***!
@@ -55138,6 +58395,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Comments_Index__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Components/Comments/Index */ "./resources/assets/Admin/Components/Comments/Index.vue");
 /* harmony import */ var _Components_Contacts_Index__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Components/Contacts/Index */ "./resources/assets/Admin/Components/Contacts/Index.vue");
 /* harmony import */ var _Components_Settings_Index__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Components/Settings/Index */ "./resources/assets/Admin/Components/Settings/Index.vue");
+/* harmony import */ var _Components_Hotels_Ours_Index__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Components/Hotels/Ours/Index */ "./resources/assets/Admin/Components/Hotels/Ours/Index.vue");
+/* harmony import */ var _Components_Hotels_Ours_Create__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Components/Hotels/Ours/Create */ "./resources/assets/Admin/Components/Hotels/Ours/Create.vue");
+/* harmony import */ var _Components_Hotels_Ours_Edit__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Components/Hotels/Ours/Edit */ "./resources/assets/Admin/Components/Hotels/Ours/Edit.vue");
+/* harmony import */ var _Components_Hotels_Ours_Gallery__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./Components/Hotels/Ours/Gallery */ "./resources/assets/Admin/Components/Hotels/Ours/Gallery.vue");
+/* harmony import */ var _Components_Hotels_Ours_Rooms_Index__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./Components/Hotels/Ours/Rooms/Index */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Index.vue");
+/* harmony import */ var _Components_Hotels_Ours_Rooms_Create__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./Components/Hotels/Ours/Rooms/Create */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Create.vue");
+/* harmony import */ var _Components_Hotels_Ours_Rooms_Edit__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Components/Hotels/Ours/Rooms/Edit */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Edit.vue");
+/* harmony import */ var _Components_Hotels_Ours_Rooms_Gallery__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Components/Hotels/Ours/Rooms/Gallery */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Gallery.vue");
+/* harmony import */ var _Components_Hotels_Ours_Rooms_Discount__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Components/Hotels/Ours/Rooms/Discount */ "./resources/assets/Admin/Components/Hotels/Ours/Rooms/Discount.vue");
  //====================== Tours ======================
 
 
@@ -55168,12 +58434,24 @@ __webpack_require__.r(__webpack_exports__);
 // ========================= Settings =========================
 
  // ========================= Settings =========================
+//====================== Hotels ======================
+
+
+
+
+
+
+
+
+
+ //====================== Hotels ======================
 
 /* harmony default export */ __webpack_exports__["default"] = ([{
   path: '/',
   name: 'داشبورد',
   component: _Components_Dashboard_Index__WEBPACK_IMPORTED_MODULE_0__["default"]
-}, {
+}, // ========================= Tours =========================
+{
   path: '/tours/ours',
   name: 'تورهای ما',
   component: _Components_Tours_Ours_Index__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -55193,7 +58471,8 @@ __webpack_require__.r(__webpack_exports__);
   path: '/tours/:id/itinerary',
   name: 'برنامه سفر تور',
   component: _Components_Tours_Ours_Itinerary__WEBPACK_IMPORTED_MODULE_5__["default"]
-}, {
+}, // ========================= Tours =========================
+{
   path: '/tour-leaders',
   name: 'تور لیدر ها',
   component: _Components_TourLeaders_Index__WEBPACK_IMPORTED_MODULE_6__["default"]
@@ -55226,9 +58505,47 @@ __webpack_require__.r(__webpack_exports__);
   component: _Components_Posts_Edit__WEBPACK_IMPORTED_MODULE_10__["default"]
 }, {
   path: '/posts/:id/comments',
-  name: 'نظرات',
+  name: 'نظرات پست',
   component: _Components_Posts_Comments__WEBPACK_IMPORTED_MODULE_11__["default"]
 }, // ========================= Posts =========================
+// ========================= Hotels =========================
+{
+  path: '/hotels/ours',
+  name: 'هتل های ما',
+  component: _Components_Hotels_Ours_Index__WEBPACK_IMPORTED_MODULE_17__["default"]
+}, {
+  path: '/hotels/create',
+  name: 'افزودن هتل جدید',
+  component: _Components_Hotels_Ours_Create__WEBPACK_IMPORTED_MODULE_18__["default"]
+}, {
+  path: '/hotels/:id/edit',
+  name: 'ویرایش هتل',
+  component: _Components_Hotels_Ours_Edit__WEBPACK_IMPORTED_MODULE_19__["default"]
+}, {
+  path: '/hotels/:id/gallery',
+  name: 'گالری هتل',
+  component: _Components_Hotels_Ours_Gallery__WEBPACK_IMPORTED_MODULE_20__["default"]
+}, {
+  path: '/hotels/:id/room',
+  name: 'اتاق ها',
+  component: _Components_Hotels_Ours_Rooms_Index__WEBPACK_IMPORTED_MODULE_21__["default"]
+}, {
+  path: '/hotels/:id/room/create',
+  name: 'تعریف اتاق',
+  component: _Components_Hotels_Ours_Rooms_Create__WEBPACK_IMPORTED_MODULE_22__["default"]
+}, {
+  path: '/hotels/room/:id/edit',
+  name: 'ویرایش اتاق',
+  component: _Components_Hotels_Ours_Rooms_Edit__WEBPACK_IMPORTED_MODULE_23__["default"]
+}, {
+  path: '/hotels/room/:id/gallery',
+  name: 'گالری اتاق',
+  component: _Components_Hotels_Ours_Rooms_Gallery__WEBPACK_IMPORTED_MODULE_24__["default"]
+}, {
+  path: '/hotels/room/:id/discount',
+  name: 'تخفیف اتاق',
+  component: _Components_Hotels_Ours_Rooms_Discount__WEBPACK_IMPORTED_MODULE_25__["default"]
+}, // ========================= Hotels =========================
 // ========================= Comments  =========================
 {
   path: '/comments',
