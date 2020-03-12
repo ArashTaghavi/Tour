@@ -50,6 +50,23 @@ import HotelRoomDiscount from './Components/Hotels/Ours/Rooms/Discount';
 //====================== Hotels ======================
 
 
+//====================== Hostel ======================
+import OurHostels from './Components/Hostels/Ours/Index';
+import HostelCreate from './Components/Hostels/Ours/Create';
+import HostelEdit from './Components/Hostels/Ours/Edit';
+import HostelGallery from './Components/Hostels/Ours/Gallery';
+
+import HostelRoom from './Components/Hostels/Ours/Rooms/Index';
+import HostelRoomCreate from './Components/Hostels/Ours/Rooms/Create';
+import HostelRoomEdit from './Components/Hostels/Ours/Rooms/Edit';
+import HostelRoomGallery from './Components/Hostels/Ours/Rooms/Gallery';
+import HostelRoomBed from './Components/Hostels/Ours/Rooms/Beds/Index';
+import HostelRoomBedCreate from './Components/Hostels/Ours/Rooms/Beds/Create';
+import HostelRoomBedEdit from './Components/Hostels/Ours/Rooms/Beds/Edit';
+import HostelRoomBedDiscount from './Components/Hostels/Ours/Rooms/Beds/Discount';
+//====================== Hostel ======================
+
+
 export default [
     {path: '/', name: 'داشبورد', component: Dashboard},
 
@@ -88,6 +105,23 @@ export default [
     {path: '/hotels/room/:id/gallery', name: 'گالری اتاق', component: HotelRoomGallery},
     {path: '/hotels/room/:id/discount', name: 'تخفیف اتاق', component: HotelRoomDiscount},
     // ========================= Hotels =========================
+
+    // ========================= Hostels =========================
+    {path: '/hostels/ours', name: 'هاستل های ما', component: OurHostels},
+    {path: '/hostels/create', name: 'افزودن هاستل جدید', component: HostelCreate},
+    {path: '/hostels/:id/edit', name: 'ویرایش هاستل', component: HostelEdit},
+    {path: '/hostels/:id/gallery', name: 'گالری هاستل', component: HostelGallery},
+    {path: '/hostels/:id/room', name: 'اتاق ها', component: HostelRoom},
+    {path: '/hostels/:id/room/create', name: 'تعریف اتاق هاستل', component: HostelRoomCreate},
+    {path: '/hostels/room/:id/edit', name: 'ویرایش اتاق هاستل', component: HostelRoomEdit},
+    {path: '/hostels/room/:id/gallery', name: 'گالری اتاق هاستل', component: HostelRoomGallery},
+
+
+    {path: '/hostels/room/:id/bed', name: 'تخت هاستل', component: HostelRoomBed},
+    {path: '/hostels/room/:id/bed/create', name: 'تعریف تخت هاستل', component: HostelRoomBedCreate},
+    {path: '/hostels/room/bed/:id/edit', name: 'ویرایش تخت هاستل', component: HostelRoomBedEdit},
+    {path: '/hostels/room/bed/:id/discount', name: 'تخفیف تخت هاستل', component: HostelRoomBedDiscount},
+    // ========================= Hostels =========================
 
     // ========================= Comments  =========================
     {path: '/comments', name: 'نظرات', component: Comments},

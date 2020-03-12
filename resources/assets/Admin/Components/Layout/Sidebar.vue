@@ -48,6 +48,19 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="nav-link has-dropdown">
+                        <i class="fa fa-home"></i>
+                        <span>مدیریت هاستل</span></a>
+                    <ul class="dropdown-menu">
+                        <li class="">
+                            <router-link class="nav-link" to="/hostels/ours">هاستل های ما</router-link>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="index2.html">هاستل های همکاران</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link has-dropdown">
                         <i class="fa fa-blog"></i>
                         <span>مدیریت وبلاگ</span></a>
                     <ul class="dropdown-menu">

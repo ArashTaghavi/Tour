@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\Hostel;
+use App\Models\Hostle;
 use App\Models\Hotel;
 use App\Models\PeriodTour;
 use App\Models\TourUser;
@@ -51,5 +53,10 @@ class User extends Authenticatable
     public function hotels()
     {
         return $this->hasMany(Hotel::class);
+    }
+
+    public function hostels()
+    {
+        return $this->hasMany(Hostel::class);
     }
 }

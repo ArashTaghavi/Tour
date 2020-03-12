@@ -38,12 +38,12 @@
 
         methods: {
             getDiscount() {
-                axios.get(`/hotel-rooms/get/${this.$route.params.id}`)
+                axios.get(`/bed-hostel-rooms/get/${this.$route.params.id}`)
                     .then(response => this.form = response.data)
                     .catch(error => this.errorNotify(error));
             },
             handleSubmit() {
-                axios.put(`/hotel-rooms/discount/${this.$route.params.id}`, this.form).then(response => {
+                axios.put(`/bed-hostel-rooms/discount/${this.$route.params.id}`, this.form).then(response => {
                     this.successNotify(response);
                     this.$router.go(-1);
                 }).catch(error => this.errorNotify(error));
