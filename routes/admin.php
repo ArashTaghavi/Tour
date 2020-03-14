@@ -95,13 +95,13 @@ Route::middleware(['web', 'auth:web'])->group(function () {
 
         // ============================== Hotel Rooms ==============================
         Route::name('hotel-rooms.')->prefix('hotel-rooms')->group(function () {
-            Route::get('/{id}','HotelRoomController@index')->name('index');
-            Route::get('/get/{id}','HotelRoomController@get')->name('get');
-            Route::post('/{id}','HotelRoomController@store')->name('store');
-            Route::put('/{id}','HotelRoomController@update')->name('update');
-            Route::put('/discount/{id}','HotelRoomController@discountUpdate')->name('discount-update');
-            Route::put('/handle-reserve/{id}','HotelRoomController@handleReserve')->name('handle-reserve');
-            Route::delete('/{id}','HotelRoomController@destroy')->name('destroy');
+            Route::get('/{id}', 'HotelRoomController@index')->name('index');
+            Route::get('/get/{id}', 'HotelRoomController@get')->name('get');
+            Route::post('/{id}', 'HotelRoomController@store')->name('store');
+            Route::put('/{id}', 'HotelRoomController@update')->name('update');
+            Route::put('/discount/{id}', 'HotelRoomController@discountUpdate')->name('discount-update');
+            Route::put('/handle-reserve/{id}', 'HotelRoomController@handleReserve')->name('handle-reserve');
+            Route::delete('/{id}', 'HotelRoomController@destroy')->name('destroy');
         });
         // ============================== Hotel Rooms ==============================
 
@@ -115,6 +115,61 @@ Route::middleware(['web', 'auth:web'])->group(function () {
         // ============================== Image Rooms ==============================
 
 
+        // ============================== Hostels ==============================
+        Route::name('hostels.')->prefix('hostels')->group(function () {
+            Route::get('/', 'HostelController@our_hostels')->name('our_hostels');
+            Route::get('/{id}', 'HostelController@get')->name('get');
+            Route::post('/', 'HostelController@store')->name('store');
+            Route::put('/{id}', 'HostelController@update')->name('update');
+            Route::delete('/{id}', 'HostelController@destroy')->name('destroy');
+        });
+        // ============================== Hostels ==============================
+
+
+        // ============================== Hostel Images ==============================
+        Route::name('hostel-images.')->prefix('hostel-images')->group(function () {
+            Route::get('/{id}', 'HostelImageController@index')->name('index');
+            Route::post('/{id}', 'HostelImageController@store')->name('store');
+            Route::delete('/{id}', 'HostelImageController@destroy')->name('destroy');
+
+        });
+        // ============================== Hostel Images ==============================
+
+
+        // ============================== Hostel Rooms ==============================
+        Route::name('hostel-rooms.')->prefix('hostel-rooms')->group(function () {
+            Route::get('/{id}', 'HostelRoomController@index')->name('index');
+            Route::get('/get/{id}', 'HostelRoomController@get')->name('get');
+            Route::post('/{id}', 'HostelRoomController@store')->name('store');
+            Route::put('/{id}', 'HostelRoomController@update')->name('update');
+            Route::put('/discount/{id}', 'HostelRoomController@discountUpdate')->name('discount-update');
+            Route::put('/handle-reserve/{id}', 'HostelRoomController@handleReserve')->name('handle-reserve');
+            Route::delete('/{id}', 'HostelRoomController@destroy')->name('destroy');
+        });
+        // ============================== Hostel Rooms ==============================
+
+        // ============================== Image Hostel Rooms ==============================
+        Route::name('image-hostel-rooms.')->prefix('image-hostel-rooms')->group(function () {
+            Route::get('/{id}', 'ImageHostelRoomController@index')->name('index');
+            Route::post('/{id}', 'ImageHostelRoomController@store')->name('store');
+            Route::delete('/{id}', 'ImageHostelRoomController@destroy')->name('destroy');
+
+        });
+        // ============================== Image Hostel Rooms ==============================
+
+        // ============================== Bed Hostel Rooms ==============================
+        Route::name('bed-hostel-rooms.')->prefix('bed-hostel-rooms')->group(function () {
+            Route::get('/{id}', 'BedHostelRoomController@index')->name('index');
+            Route::get('/get/{id}', 'BedHostelRoomController@get')->name('get');
+            Route::post('/{id}', 'BedHostelRoomController@store')->name('store');
+            Route::put('/{id}', 'BedHostelRoomController@update')->name('update');
+            Route::put('/discount/{id}', 'BedHostelRoomController@discountUpdate')->name('discount-update');
+            Route::put('/handle-reserve/{id}', 'BedHostelRoomController@handleReserve')->name('handle-reserve');
+            Route::delete('/{id}', 'BedHostelRoomController@destroy')->name('destroy');
+        });
+        // ============================== Bed Hostel Rooms ==============================
+
+
         // ================================ Comments ================================
         Route::prefix('comments')->name('comments.')->group(function () {
             Route::get('/', 'CommentController@index')->name('index');
@@ -125,6 +180,26 @@ Route::middleware(['web', 'auth:web'])->group(function () {
             Route::get('/{approved}/search', 'CommentController@search')->name('search');
         });
         // ================================ Comments ================================
+
+        // ============================== Features ==============================
+        Route::name('features.')->prefix('features')->group(function () {
+            Route::get('/', 'FeatureController@index')->name('index');
+            Route::post('/', 'FeatureController@store')->name('store');
+            Route::put('/field-update/{id}/{field}', 'FeatureController@fieldUpdate')->name('field-update');
+            Route::delete('/{id}', 'FeatureController@destroy')->name('destroy');
+
+        });
+        // ============================== Features ==============================
+
+        // ============================== Policies ==============================
+        Route::name('policies.')->prefix('policies')->group(function () {
+            Route::get('/', 'PolicyController@index')->name('index');
+            Route::post('/', 'PolicyController@store')->name('store');
+            Route::put('/field-update/{id}/{field}', 'PolicyController@fieldUpdate')->name('field-update');
+            Route::delete('/{id}', 'PolicyController@destroy')->name('destroy');
+
+        });
+        // ============================== Policies ==============================
 
         // ================================ Contacts ================================
         Route::prefix('contacts')->name('contacts.')->group(function () {

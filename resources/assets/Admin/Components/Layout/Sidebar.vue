@@ -76,6 +76,18 @@
                     </ul>
                 </li>
                 <li class="">
+                    <router-link to="/features" class="nav-link">
+                        <i class="fa fa-home"></i>
+                        <span>امکانات رفاهی</span>
+                    </router-link>
+                </li>
+                <li class="">
+                    <router-link to="/policies" class="nav-link">
+                        <i class="fa fa-archive"></i>
+                        <span>قوانین</span>
+                    </router-link>
+                </li>
+                <li class="">
                     <router-link to="/contacts" class="nav-link">
                         <i class="fa fa-phone"></i>
                         <span>تماس با ما</span>
@@ -87,7 +99,6 @@
                         <span>تنظیمات</span>
                     </router-link>
                 </li>
-
             </ul>
         </aside>
     </div>

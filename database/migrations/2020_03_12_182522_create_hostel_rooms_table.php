@@ -22,6 +22,7 @@ class CreateHostelRoomsTable extends Migration
             $table->foreign('hostel_id')->references('id')->on('hostels')->onDelete('cascade');
             $table->integer('bed_count');
             $table->text('description');
+            $table->tinyInteger('is_full_reserved')->default(0);
             $table->string('profile_image');
             $table->timestamps();
         });

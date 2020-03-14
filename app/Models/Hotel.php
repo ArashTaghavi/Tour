@@ -47,6 +47,11 @@ class Hotel extends Model
         return $this->hasMany(HotelRoom::class);
     }
 
+    protected $casts = [
+        'options' => 'array',
+        'policies' => 'array',
+    ];
+
     /*
         public function itineraryTour()
         {

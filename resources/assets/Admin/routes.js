@@ -50,7 +50,7 @@ import HotelRoomDiscount from './Components/Hotels/Ours/Rooms/Discount';
 //====================== Hotels ======================
 
 
-//====================== Hostel ======================
+//====================== Hostels ======================
 import OurHostels from './Components/Hostels/Ours/Index';
 import HostelCreate from './Components/Hostels/Ours/Create';
 import HostelEdit from './Components/Hostels/Ours/Edit';
@@ -64,7 +64,17 @@ import HostelRoomBed from './Components/Hostels/Ours/Rooms/Beds/Index';
 import HostelRoomBedCreate from './Components/Hostels/Ours/Rooms/Beds/Create';
 import HostelRoomBedEdit from './Components/Hostels/Ours/Rooms/Beds/Edit';
 import HostelRoomBedDiscount from './Components/Hostels/Ours/Rooms/Beds/Discount';
-//====================== Hostel ======================
+//====================== Hostels ======================
+
+//====================== Features ======================
+import Features from './Components/Features/Index';
+import FeatureCreate from './Components/Features/Create';
+//====================== Features ======================
+
+// ====================== Policies ======================
+import Policies from './Components/Policies/Index';
+import PolicyCreate from './Components/Policies/Create';
+//====================== Policies ======================
 
 
 export default [
@@ -122,6 +132,18 @@ export default [
     {path: '/hostels/room/bed/:id/edit', name: 'ویرایش تخت هاستل', component: HostelRoomBedEdit},
     {path: '/hostels/room/bed/:id/discount', name: 'تخفیف تخت هاستل', component: HostelRoomBedDiscount},
     // ========================= Hostels =========================
+
+    // ========================= Features  =========================
+    {path:'/features',name:'امکانات رفاهی',component:Features},
+    {path:'/features/create',name:'تعریف امکانات رفاهی',component:FeatureCreate},
+    // ========================= Features  =========================
+
+    // ========================= Features  =========================
+    {path:'/policies',name:'قوانین',component:Policies},
+    {path:'/policies/create',name:'تعریف قوانین',component:PolicyCreate},
+    // ========================= Features  =========================
+
+
 
     // ========================= Comments  =========================
     {path: '/comments', name: 'نظرات', component: Comments},

@@ -47,6 +47,12 @@ class Hostel extends Model
         return $this->hasMany(HostelRoom::class);
     }
 
+    protected $casts = [
+        'options' => 'array',
+        'policies' => 'array',
+    ];
+
+
     /*
         public function itineraryTour()
         {

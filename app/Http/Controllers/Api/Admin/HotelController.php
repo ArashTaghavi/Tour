@@ -64,6 +64,14 @@ class HotelController extends BaseController
             'phone' => 'required',
             'address' => 'required',
             'profile_image' => 'required',
+            'bedroom_count' => 'required',
+            'state' => 'required',
+            'postal_code' => 'required',
+            'contact_name' => 'required',
+            'booking_email' => 'required',
+            'currency' => 'required',
+            'options' => 'required',
+            'policies' => 'required',
         ]);
 
         if ($validator->fails()) {

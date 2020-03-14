@@ -16,6 +16,7 @@ class HotelRoomController extends BaseController
 
     public function store(Request $request, $id)
     {
+
         $this->handleValidate($request);
 
         $hotel = Hotel::findOrFail($id);
