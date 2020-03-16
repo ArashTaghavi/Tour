@@ -18,6 +18,7 @@ class CreateFeaturesTable extends Migration
             $table->string('title');
             $table->timestamps();
         });
+        \Illuminate\Support\Facades\DB::insert('INSERT INTO `features` (`id`, `title`, `created_at`, `updated_at`) VALUES (NULL, \'Bar\', \'2020-03-15 00:00:00\', \'2019-12-22 13:05:15\'), (NULL, \'Wifi\', \'2020-01-15 00:00:00\', \'2020-01-20 00:00:00\')');
     }
 
     /**

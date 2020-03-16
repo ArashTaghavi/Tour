@@ -8,7 +8,7 @@ class BedHostelRoom extends Model
 {
 
 
-    protected $fillable = ['number','price','discount','start_date','end_date'];
+    protected $fillable = ['number','price','persons','discount','start_date','end_date'];
 
 
 

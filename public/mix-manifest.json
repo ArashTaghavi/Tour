@@ -1,4 +1,6 @@
 {
     "/admin-js/app.js": "/admin-js/app.js",
+    "/hostel-js/app.js": "/hostel-js/app.js",
+    "/hotel-js/app.js": "/hotel-js/app.js",
     "/user-js/app.js": "/user-js/app.js"
 }

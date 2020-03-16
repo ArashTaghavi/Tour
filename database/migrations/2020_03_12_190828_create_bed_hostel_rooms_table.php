@@ -17,6 +17,7 @@ class CreateBedHostelRoomsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('number');
             $table->string('price');
+            $table->integer('persons');
             $table->float('discount')->default(0);
             $table->date('start_date')->comment('for discount')->nullable();
             $table->date('end_date')->comment('for discount')->nullable();

@@ -66,5 +66,9 @@ class LoginController extends Controller
             return redirect('/admin');
         if ($user->role == User::USER)
             return redirect('/user');
+        if ($user->role == User::HOSTEL)
+            return redirect('/hostel');
+        if ($user->role == User::HOTEL)
+            return redirect('/hotel');
     }
 }

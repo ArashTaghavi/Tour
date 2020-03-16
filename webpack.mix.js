@@ -13,4 +13,6 @@ const mix = require('laravel-mix');
 
 mix.js('resources/assets/Admin/app.js', 'public/admin-js');
 mix.js('resources/assets/User/app.js', 'public/user-js');
+mix.js('resources/assets/Hostel/app.js', 'public/hostel-js');
+mix.js('resources/assets/Hotel/app.js', 'public/hotel-js');
 

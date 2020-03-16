@@ -19,6 +19,14 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
+                    <label for="bedroom_count" class="required">تعداد اتاق خواب</label>
+                    <input v-model="form.bedroom_count"
+                           type="number" class="form-control form-control-sm" id="bedroom_count"
+                           placeholder="تعداد اتاق خواب را وارد کنید">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
                     <label for="price" class="required">قیمت</label>
                     <input v-model="form.price"
                            min="0"

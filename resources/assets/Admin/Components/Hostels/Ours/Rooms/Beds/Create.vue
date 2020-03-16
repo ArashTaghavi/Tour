@@ -18,6 +18,15 @@
                            placeholder="قیمت را وارد نمایید">
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="persons" class="required">تعداد نفر</label>
+                    <input v-model="form.persons"
+                           min="0"
+                           type="text" class="form-control form-control-sm" id="persons"
+                           placeholder="مشخص کنید که تخت چند نفره است">
+                </div>
+            </div>
             <submit @click="handleSubmit"/>
         </div>
     </card>

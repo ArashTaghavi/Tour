@@ -135,8 +135,8 @@
 </template>
 
 <script>
-    import Header from "../Admin/Components/Layout/Header";
-    import Sidebar from "../Admin/Components/Layout/Sidebar";
+    import Header from "./Components/Layout/Header";
+    import Sidebar from "./Components/Layout/Sidebar";
 
     export default {
         components: {Header, Sidebar}

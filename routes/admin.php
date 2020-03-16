@@ -1,5 +1,5 @@
 <?php
-Route::middleware(['web', 'auth:web'])->group(function () {
+Route::middleware(['web', 'auth:web','IsAdmin'])->group(function () {
 
     Route::get('/admin', 'DefaultController@index');
 

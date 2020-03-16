@@ -50,6 +50,10 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapUserRoutes();
 
+        $this->mapHostelRoutes();
+
+        $this->mapHotelRoutes();
+
         //
     }
 
@@ -93,5 +97,17 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::namespace('App\Http\Controllers\Api\User')
             ->group(base_path('routes/user.php'));
+    }
+
+    protected function mapHostelRoutes()
+    {
+        Route::namespace('App\Http\Controllers\Api\Hostel')
+            ->group(base_path('routes/hostel.php'));
+    }
+
+    protected function mapHotelRoutes()
+    {
+        Route::namespace('App\Http\Controllers\Api\Hotel')
+            ->group(base_path('routes/hotel.php'));
     }
 }

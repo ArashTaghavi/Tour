@@ -59,7 +59,8 @@ class BedHostelRoomController extends BaseController
     {
         $validator = \Validator::make($request->all(), [
             'number' => $id == null ? 'required|unique:bed_hostel_rooms' : 'required|unique:bed_hostel_rooms,id,' . $id,
-            'price' => 'required'
+            'persons' => 'required',
+            'price' => 'required',
         ]);
 
 

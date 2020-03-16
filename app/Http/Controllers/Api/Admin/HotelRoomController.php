@@ -66,6 +66,7 @@ class HotelRoomController extends BaseController
         $validator = \Validator::make($request->all(), [
             'floor' => 'required',
             'number' => $id == null ? 'required|unique:hotel_rooms' : 'required|unique:hotel_rooms,id,' . $id,
+            'bedroom_count' => 'required',
             'options' => 'required',
             'price' => 'required',
             'description' => 'required',

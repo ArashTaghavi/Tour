@@ -17,6 +17,7 @@ class CreateHotelRoomsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('floor');
             $table->integer('number');
+            $table->integer('bedroom_count');
             $table->text('options');
             $table->string('price');
             $table->float('discount')->default(0);

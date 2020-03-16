@@ -47,5 +47,4 @@
 </body>
 
 
-<!-- Mirrored from aegiis.iranneginhotel.ir/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Jan 2020 07:34:48 GMT -->
 </html>

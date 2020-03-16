@@ -24,6 +24,11 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        \Illuminate\Support\Facades\DB::insert('INSERT INTO `users` (`id`, `first_name`, `last_name`, `role`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, 1, \'arash@gmail.com\', NULL, \'$2y$10$ziSjg8MacQrkIiXbG0KlaOXWRgmS/KRDZSRIrt9.3bfgcgNdxKfPm\', NULL, \'2020-03-03 10:05:33\', \'2020-03-03 10:05:35\'),
+(2, NULL, NULL, 0, \'admin@gmail.com\', NULL, \'$2y$10$ziSjg8MacQrkIiXbG0KlaOXWRgmS/KRDZSRIrt9.3bfgcgNdxKfPm\', NULL, \'2020-03-03 10:05:33\', \'2020-03-03 10:05:33\'),
+(3, NULL, NULL, 2, \'hostel@gmail.com\', NULL, \'$2y$10$ziSjg8MacQrkIiXbG0KlaOXWRgmS/KRDZSRIrt9.3bfgcgNdxKfPm\', NULL, \'2020-03-03 10:05:33\', \'2020-03-03 10:05:33\'),
+(4, NULL, NULL, 3, \'hotel@gmail.com\', NULL, \'$2y$10$ziSjg8MacQrkIiXbG0KlaOXWRgmS/KRDZSRIrt9.3bfgcgNdxKfPm\', NULL, \'2020-03-03 10:05:33\', \'2020-03-03 10:05:33\')');
     }
 
     /**

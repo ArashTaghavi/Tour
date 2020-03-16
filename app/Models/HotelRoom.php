@@ -11,7 +11,7 @@ class HotelRoom extends Model
     public $image_path = 'hotel-rooms';
     public $image_field_name = 'profile_image';
 
-    protected $fillable = ['floor', 'number', 'price', 'profile_image', 'options', 'description'];
+    protected $fillable = ['floor', 'number', 'bedroom_count','price', 'profile_image', 'options', 'description'];
 
     protected $casts = [
         'options' => 'array'
